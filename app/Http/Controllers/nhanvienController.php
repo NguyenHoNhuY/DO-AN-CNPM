@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\bophan;
 use App\Models\nhanvien;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Auth;
 class nhanvienController extends Controller
 {
@@ -34,9 +35,11 @@ class nhanvienController extends Controller
         $taikhoan = $request->taikhoan;
         $matkhau = $request->matkhau;
         if(Auth::guard('nhanvien')->attempt(['manv'=>$taikhoan,'password' =>$matkhau])){
-            dd('đăng nhập thành công');
+            $nhanvien = DB::table('nhanviens')->where('manv',$taikhoan)->select('manv','TenNV')->get();
+            $request->session()->put('nhanvien',$nhanvien);
+           
         }else{
-            dd('đăng nhâp thất bại');
+            
         }
     }
 }
