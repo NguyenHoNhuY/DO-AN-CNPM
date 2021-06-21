@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MIMI HOTEL</title>
+
+        <!-- link css -->
+        <link
+            rel="stylesheet"
+            href="../../icon/fontawesome-free-5.15.3-web/css/all.css"
+        />
+        <link rel="stylesheet" href="../../css/layout/index.css" />
+
+        <!-- /link css  -->
+
+        <!-- link font -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- /link font -->
+
+        <!-- link js  -->
+        <script src="../../icon/fontawesome-free-5.15.3-web/js/all.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script src="../../js/layout/index.js"></script>
+        <!-- /link js -->
+    </head>
+    <body>
+        <header>
+            <div class="content">
+                <div class="logo">
+                    <h1>MI MI HOTEL</h1>
+                </div>
+                <div class="checkin-account flex">
+                    <div class="login flex">
+                        <div class="us-avatar">
+                            <a class="flex" href="#">
+                                <div class="av-item icon-user m-10 flex">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="av-item img-user m-10 flex">
+                                    <img src="../../img/sting.jpg" alt="" />
+                                </div>
+                            </a>
+                        </div>
+                        <div class="us-name m-10">
+                            <a href="#">Login</a>
+                        </div>
+                    </div>
+                    <div class="logout">
+                        <a href="#"> <i class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="main flex">
+            <div class="sidebar">
+                <header>
+                    <h1>MENU</h1>
+                </header>
+                <div class="menu">
+                    <ul class="main-menu">
+                        <li class="menu-item active">
+                            <a href="#">Đặt/Trả phòng</a>
+                        </li>
+                        <li class="menu-item"><a href="#">Dịch vụ</a></li>
+                        <li class="menu-item">
+                            <a href="#">Quản lí nhân viên</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#">Quản lí khách hàng</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#">Thống kê báo cáo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content">
+                <header class="flex">
+                    <h2>Đặt phòng / Trả phòng</h2>
+                </header>
+                <div class="row1 flex">
+                    <div class="col flex">
+                        <span class="open"></span>
+                        <p>Phòng trống : 10</p>
+                    </div>
+                    <div class="col flex">
+                        <span class="full"></span>
+                        <p>Phòng đang sử dụng : 10</p>
+                    </div>
+                    <div class="col flex">
+                        <span class="wait"></span>
+                        <p>Phòng đặt trước : 10</p>
+                    </div>
+                    <div class="col flex">
+                        <p>Tổng : 30</p>
+                    </div>
+                </div>
+                <div class="row2 flex">
+                    <div class="bt-floor">
+                        <button id="0">Tầng 1</button>
+                    </div>
+                    <div class="bt-floor">
+                        <button id="1">Tầng 2</button>
+                    </div>
+                    <div class="bt-floor">
+                        <button id="2">Tầng 3</button>
+                    </div>
+                    <div class="bt-floor">
+                        <button id="3">Tầng 4</button>
+                    </div>
+                </div>
+                <div class="row3">
+                    <div id="0" class="row3-item">
+                        <div class="number flex">
+                            <h1 class="flex">Tầng 1</h1>
+                        </div>
+                        <div class="body">
+                            <div class="box">
+                                <div class="box-icon flex open">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>101</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex full">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>102</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex wait">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>103</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex open">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>104</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex full">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>105</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex wait">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>106</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="1" class="row3-item dn">
+                        <div class="number flex">
+                            <h1 class="flex">Tầng 2</h1>
+                        </div>
+                        <div class="body">
+                            <div class="box">
+                                <div class="box-icon flex open">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>201</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex full">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>202</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex wait">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>203</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex open">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>204</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex full">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>205</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex wait">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>206</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="2" class="row3-item dn">
+                        <div class="number flex">
+                            <h1 class="flex">Tầng 3</h1>
+                        </div>
+                        <div class="body">
+                            <div class="box">
+                                <div class="box-icon flex wait">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>01</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex full">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>01</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex open">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>01</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex full">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>01</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex open">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>01</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex wait">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>01</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="3" class="row3-item dn">
+                        <div class="number flex">
+                            <h1 class="flex">Tầng 4</h1>
+                        </div>
+                        <div class="body">
+                            <div class="box">
+                                <div class="box-icon flex open">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>01</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex full">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>01</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex wait">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>01</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex full">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>01</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex open">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>01</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-icon flex wait">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="box-content">
+                                    <div class="ct-item room-code">
+                                        <p>Mã phòng :&ensp;</p>
+                                        <span>01</span>
+                                    </div>
+                                    <div class="ct-item room-price">
+                                        <p>Giá : &ensp;</p>
+                                        <span>300.000</span>
+                                    </div>
+                                    <div class="ct-item kind-of-room">
+                                        <p>Loại : &ensp;</p>
+                                        <span>Super Vip</span>
+                                    </div>
+                                </div>
+                                   <div class="box-button flex hide">
+                                    <button>Đặt phòng</button>
+                                    <button>Trả phòng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
