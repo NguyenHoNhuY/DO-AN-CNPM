@@ -24,4 +24,17 @@ $(document).ready(function () {
             check = true;
         }
     });
+
+    //todo show/hide pop-up
+    $(".bt-book-room").click(function (e) {
+        console.log("hahah");
+        $("section.pop-up").removeClass("dn");
+    });
+    $(".close").click(function (e) {
+        $(this).parent().addClass("dn");
+    });
+});
+$(document).ready(function () {
+   var status =$(".room-status").text();
+   console.log(status);
 });

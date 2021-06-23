@@ -34,10 +34,12 @@ a {
 .full {
     background: #c0392b;
 }
-.hide{
+
+.hide {
     opacity: 0;
     visibility: hidden;
 }
+
 .wait {
     background: #d35400;
 }
@@ -258,10 +260,12 @@ header>.content {
 .ct-item:first-child>span {
     color: rgba(205, 97, 51, 1.0);
 }
-.box-button{
+
+.box-button {
     flex-direction: column;
 }
-.box-button>button{
+
+.box-button>button {
     margin: 5px 0;
     padding: 10px 10px;
     outline: none;
@@ -269,4 +273,132 @@ header>.content {
     background: #3498db;
     font-size: 20px;
     color: #fff;
+    cursor: pointer;
+}
+
+.pop-up>.close {
+    position: fixed;
+    top: 7%;
+    left: 78%;
+    z-index: 1000;
+}
+
+.pop-up>.close>button {
+    width: 30px;
+    height: 29px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.pop-up>.body {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    height: 90vh;
+    background: #fff;
+    z-index: 999;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pop-up>.body>header {
+    width: 100%;
+    height: 50px;
+    background: #e66767;
+}
+
+.pop-up>.body>.content {
+    background: rgba(189, 195, 199, .4);
+    width: 100%;
+    height: calc(100% - 50px);
+}
+
+.form-header {
+    width: 100%;
+    height: 50px;
+    justify-content: start;
+}
+
+.form-header>h2 {
+    position: relative;
+    margin-left: 50px;
+}
+
+.form-header>h2::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 2px;
+    background: #000;
+}
+
+.form-header>h2::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 105%;
+    transform: translateY(-50%);
+    width: 1000px;
+    height: 2px;
+    background: #000;
+}
+.customer-info,.receipts{
+    width: 100%;
+    height: 50%;
+}
+.pop-up form{
+    width: 100%;
+    height: 100%;
+}
+.form-content{
+    display: flex;
+}
+.form-left,.form-right{
+    width: 50%;
+}
+.txt-field{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    padding: 0 20px;
+    margin: 10px 0;
+}
+.checkbox{
+    justify-content: space-around;
+}
+.txt-field>input{
+    width: 65%;
+    height: 100%;
+    outline: none;
+    border: none;
+}
+.txt-field>label{
+    font-weight: bold;
+}
+.note{
+    height: 90px;
+}
+.bt-submit{
+    width: 100%;
+}
+.customer-info .bt-submit{
+   height: 100px;
+}
+.receipts .bt-submit{
+    height: 60px;
+ }
+ .bt-submit>input{
+    width: 150px;
+    padding: 10px 0;
+    border: none;
+    font-size: 18px;
+    background: rgba(189, 195, 199, 1);
+    cursor: pointer;
 }
