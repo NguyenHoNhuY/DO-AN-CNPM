@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\hoadondv;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,4 +13,8 @@ class khachhang extends Model
     public $increment =false;
     public $timestamps =false;
     protected $keyType = 'string';
+    public function hoadonDVs(){
+        return $this->hasMany(hoadondv::class,"MaKH");
+    }
+  
 }

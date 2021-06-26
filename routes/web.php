@@ -5,9 +5,10 @@ use App\Http\Controllers\khachhangController;
 use App\Http\Controllers\nhanvienController;
 use App\Http\Controllers\phieuthueController;
 use App\Http\Controllers\phongController;
+use App\Http\Controllers\thanhtoanController;
+use App\Http\Controllers\mainController;
 use App\Models\phong;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('index',[mainController::class,'index'])->name('index');
 //user
 Route::get('dangnhap',[nhanvienController::class,'dangnhap'])->name('dangnhap');
 Route::post('checkdangnhap',[nhanvienController::class,'checkdangnhap'])->name('kiemtra');
@@ -40,6 +42,16 @@ Route::get('xoaPhong/{id}',[phongController::class,'xoaPhong'])->name('xoaPhong'
 //dichvu
 Route::get('dichvu',[dichvuController::class,'DVform'])->name('DVform');
 Route::post('themDV',[dichvuController::class,'themDV'])->name('themDV');
-//
+Route::get('order',[dichvuController::class,'orderDV'])->name('orderDV');
+Route::get('xulyDV/{maDV}',[dichvuController::class,'xulyDV'])->name('xulyDV');
+Route::get('xoaDV/{maDV}',[dichvuController::class,'xoaDVtrongyeucau'])->name('xoaDVtrongyeucau');
+Route::get('thaydoisl/{maDV}/{soluong}',[dichvuController::class,'thaydoisl'])->name('thaydoisl');
+Route::post('taoHD',[dichvuController::class,'taoHDDV'])->name('taoHDDV');
+//Phieuthue
 Route::get('phieuthue',[phieuthueController::class,'PTform'])->name('PTform');
 Route::post('themPT',[phieuthueController::class,'themPT'])->name('themPT');
+//Thanh toan
+Route::get('thanhtoan/{makh}',[thanhtoanController::class,'thanhtoan'])->name('thanhtoan');
+Route::post('themTT',[thanhtoanController::class,'themTT'])->name('themTT');
+
+Route::get('test',[phongController::class,'test'])->name('test');

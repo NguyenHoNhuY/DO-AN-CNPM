@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\hoadondv;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,4 +14,7 @@ class dichvu extends Model
     public $increment =false;
     public $timestamps =false;
     protected $keyType = 'string';
+    public function hoadonDVs(){ 
+        return $this->belongsToMany(hoadondv::class,'chitietdvs','MaDV','MaHDDV');
+    }
 }

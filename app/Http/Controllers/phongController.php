@@ -7,8 +7,12 @@ use Illuminate\Support\Facades\DB;
 class phongController extends Controller
 {
     public function Phongform(){
-        $data = phong::all();
-        return view('phong',compact('data'));
+        $data = DB::select('SELECT * FROM phongs ORDER BY tang ASC');
+        return $data;
+    }
+    public function test(){
+        $data = DB::select('SELECT * FROM phongs ORDER BY tang ASC');
+        return $data;
     }
     public function taomaPhong($bang,$cot,$tiento,$max){
         return parent::taoKhoaChinh($bang,$cot,$tiento,$max);

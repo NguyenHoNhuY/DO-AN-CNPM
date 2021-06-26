@@ -29,7 +29,7 @@ class nhanvienController extends Controller
         $bophan->nhanviens()->save($nhanvien);//them nhân viên vào database;
     }
     public function dangnhap(){
-        return view('dangnhap');
+        return view('layout.login');
     }
     public function checkdangnhap(Request $request){
         $taikhoan = $request->taikhoan;
@@ -37,9 +37,9 @@ class nhanvienController extends Controller
         if(Auth::guard('nhanvien')->attempt(['manv'=>$taikhoan,'password' =>$matkhau])){
             $nhanvien = DB::table('nhanviens')->where('manv',$taikhoan)->select('manv','TenNV')->get();
             $request->session()->put('nhanvien',$nhanvien);
-           
+            dd('thành công');
         }else{
-            
+            dd('thất bại');
         }
     }
 }

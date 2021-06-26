@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     //todo click show/hide row3-item
     $(".bt-floor>button").click(function (e) {
-        let id = $(this).attr("id");
+        let id = parseInt($(this).attr("id")-1);
         $(".row3-item").addClass("dn");
         $(".row3-item").eq(id).removeClass("dn");
     });
