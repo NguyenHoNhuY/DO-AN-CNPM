@@ -7,6 +7,8 @@ use App\Http\Controllers\phieuthueController;
 use App\Http\Controllers\phongController;
 use App\Http\Controllers\thanhtoanController;
 use App\Http\Controllers\mainController;
+use App\Models\nhanvien;
+use App\Models\phieuthue;
 use App\Models\phong;
 use Illuminate\Support\Facades\Route;
 /*
@@ -23,10 +25,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('index',[mainController::class,'index'])->name('index');
 //user
 Route::get('dangnhap',[nhanvienController::class,'dangnhap'])->name('dangnhap');
 Route::post('checkdangnhap',[nhanvienController::class,'checkdangnhap'])->name('kiemtra');
+Route::get('dangxuat',[nhanvienController::class,'dangxuat'])->name('dangxuat');
 //NhanVien
 Route::get('them',[nhanvienController::class,'them'])->name('them');
 Route::post('themnhanvien',[nhanvienController::class,'kiemtra'])->name('themnhanvien');
@@ -34,7 +36,7 @@ Route::post('themnhanvien',[nhanvienController::class,'kiemtra'])->name('themnha
 Route::get('khachhang',[khachhangController::class,'KHform'])->name('KHform');
 Route::post('themKH',[khachhangController::class,'themKH'])->name('themKH');
 //phong
-Route::get('phong',[phongController::class,'Phongform'])->name('Phongform');
+Route::get('phong',[phongController::class,'danhsachphong'])->name('dsPhong');
 Route::post('themPhong',[phongController::class,'themPhong'])->name('themPhong');
 Route::get('suaPhong/{id}',[phongController::class,'Suaform'])->name('phong_SuaForm');
 Route::post('kiemtraSua',[phongController::class,'suaPhong'])->name('suaPhong');
@@ -53,5 +55,8 @@ Route::post('themPT',[phieuthueController::class,'themPT'])->name('themPT');
 //Thanh toan
 Route::get('thanhtoan/{makh}',[thanhtoanController::class,'thanhtoan'])->name('thanhtoan');
 Route::post('themTT',[thanhtoanController::class,'themTT'])->name('themTT');
-
-Route::get('test',[phongController::class,'test'])->name('test');
+Route::get('test/{makh}',[thanhtoanController::class,'capnhatPhong']);
+//Thong ke
+Route::get('thongke',[thanhtoanController::class,'thongke'])->name('thongke');
+Route::get('doanhthuPhong',[thanhtoanController::class,'doanhthuPhong']);
+Route::get('doanhthuDV',[thanhtoanController::class,'doanhthuDV']);

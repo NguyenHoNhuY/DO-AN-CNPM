@@ -26,6 +26,7 @@
         <!-- /link font -->
 
         <!-- link js  -->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script src="icon/fontawesome-free-5.15.3-web/js/all.js"></script>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -55,11 +56,13 @@
                             </a>
                         </div>
                         <div class="us-name m-10">
-                            <a href="#">Login</a>
+                            @if(Session::has('nhanvien')!=null)
+                            <p>{{ Session::get('nhanvien')[0]->TenNV }}</p>
+                            @endif
                         </div>
                     </div>
                     <div class="logout">
-                        <a href="#"> <i class="fas fa-sign-out-alt"></i></a>
+                        <a href="http://localhost/CNPM/public/dangxuat"> <i class="fas fa-sign-out-alt"></i></a>
                     </div>
                 </div>
             </div>
@@ -92,20 +95,28 @@
                     <h2>Đặt phòng / Trả phòng</h2>
                 </header>
                 <div class="row1 flex">
+                    @foreach($tinhtrang as $item)
+                        @if($item->Tinhtrang=='open')
+                            <div class="col flex">
+                                <span class="open"></span>
+                                <p>Phòng trống : {{ $item->SoLuong }}</p>
+                            </div>
+                        @endif
+                        @if($item->Tinhtrang=='full')
+                            <div class="col flex">
+                                <span class="full"></span>
+                                <p>Phòng đang sử dụng : {{ $item->SoLuong }}</p>
+                            </div>
+                        @endif
+                        @if($item->Tinhtrang=='wait')
+                            <div class="col flex">
+                                <span class="wait"></span>
+                                <p>Phòng đặt trước : {{ $item->SoLuong }}</p>
+                            </div>
+                        @endif
+                    @endforeach
                     <div class="col flex">
-                        <span class="open"></span>
-                        <p>Phòng trống : 10</p>
-                    </div>
-                    <div class="col flex">
-                        <span class="full"></span>
-                        <p>Phòng đang sử dụng : 10</p>
-                    </div>
-                    <div class="col flex">
-                        <span class="wait"></span>
-                        <p>Phòng đặt trước : 10</p>
-                    </div>
-                    <div class="col flex">
-                        <p>Tổng : 30</p>
+                        <p>Tổng : 24</p>
                     </div>
                 </div>
                 <!-- danh sach cac tang -->
@@ -125,7 +136,7 @@
                 </div>
                 <!-- danh sach cac phong -->
                 <div class="row3">
-                    <div id="{{ $phongs[0]->tang }}" class="row3-item">
+                    <div id="1" class="row3-item">
                           <div class="number flex">
                             <h1 class="flex">Tầng 1</h1>
                         </div>
@@ -208,9 +219,45 @@
                 <header class="flex">
                     <h1>Nhận phòng - 01</h1>
                 </header>
+                <!--Alert-->
+                @if(Session::has('alert_kh')!=null)
+                    <script>
+                        swal({
+                            title: "{!! Session::get('alert_kh') !!}",
+                            icon: "success",
+                            button: "Xong",
+                        })
+                        $(document).ready(function () {
+                            $('.customer-info').addClass('dn');
+                            $('.receipts').removeClass('dn');
+                        });
+                    </script>
+                    @php
+                      Session::forget('alert_kh') 
+                    @endphp
+                @else
+                    <script>
+                        $(document).ready(function () {
+                            $('.receipts').addClass('dn');
+                        });
+                    </script>
+                @endif 
+                @if(Session::has('alert_pt')!=null)
+                    <script>
+                        swal({
+                            title: "{!! Session::get('alert_pt') !!}",
+                            icon: "success",
+                            button: "Xong",
+                        })
+                    </script>
+                    @php
+                    Session::forget('alert_pt') 
+                    @endphp
+                @endif
                 <div class="content">
                     <div class="customer-info">
-                        <form action="">
+                        <form method="POST" action="{{ route('themKH') }}">
+                            @csrf
                             <header class="form-header flex">
                                 <h2>Thông tin khách hàng</h2>
                             </header>
@@ -218,19 +265,19 @@
                                 <div class="form-left">
                                     <div class="txt-field">
                                         <label for="">Tên khách hàng : </label>
-                                        <input type="text" required/>
+                                        <input type="text" name='tenkh' required/>
                                     </div>
                                     <div class="txt-field">
                                         <label for="">CMND/Passport : </label>
-                                        <input type="text" required/>
+                                        <input type="text" name='cmnd' required/>
                                     </div>
                                     <div class="txt-field checkbox">
                                         <label for="" class="form-check">
                                             <input
                                                 type="radio"
-                                                name="gioitiinh"
+                                                name="gioitinh"
                                                 id="gioitinh"
-                                                value="nam"
+                                                value="Nam"
                                                 checked
                                             />
                                             Nam
@@ -238,9 +285,9 @@
                                         <label for="" class="form-check">
                                             <input
                                                 type="radio"
-                                                name="gioitiinh"
+                                                name="gioitinh"
                                                 id="gioitinh"
-                                                value="nu"
+                                                value="Nữ"
                                             />
                                             Nữ
                                         </label>
@@ -249,61 +296,61 @@
                                 <div class="form-right">
                                     <div class="txt-field">
                                         <label for="">Địa chỉ : </label>
-                                        <input type="text" required/>
+                                        <input type="text" name='diachi' required/>
                                     </div>
                                     <div class="txt-field">
                                         <label for="">Điện thoại : </label>
-                                        <input type="text" required/>
-                                    </div>
-                                    <div class="txt-field">
-                                        <label for="">Ghi chú : </label>
-                                        <input type="text" required/>
+                                        <input type="text" name='sodienthoai' required/>
                                     </div>
                                 </div>
                             </div>
-                            <div class="bt-submit flex">
+                            <div class="bt-submit flex ">
                                 <input type="submit" value="Thêm khách hàng" />
                             </div>
                         </form>
                     </div>
-                    <div class="receipts">
-                        <form action="">
+                    <div class="receipts ">
+                        <form method="POST" action="{{ route('themPT') }}">
+                            @csrf
                             <header class="form-header flex">
                                 <h2>Thông tin phiếu thuê</h2>
                             </header>
                             <div class="form-content">
+                                @if(Session::get('khachhang')!=null)
                                 <div class="form-left">
                                     <div class="txt-field">
                                         <label for="">Mã khách hàng : </label>
-                                        <input type="text" required/>
+                                        <input type="text" name="makh" value="{{ Session::get('khachhang')[0] }}" readonly/>
                                     </div>
                                     <div class="txt-field">
-                                        <label for=""
-                                            >Tên khách hàng :</label
-                                        >
-                                        <input type="text" required/>
+                                        <label for="">Tên khách hàng :</label>
+                                        <input type="text" name="tenkhh"value="{{ Session::get('khachhang')[1] }}" readonly/>
                                     </div>
+                                
                                     <div class="txt-field">
                                         <label for="">Mã phòng : </label>
-                                        <input type="text" required/>
+                                        <input type="text" name="maphong" required/>
                                     </div>
                                     <div class="txt-field">
                                         <label for="">Mã nhân viên : </label>
-                                        <input type="text" required/>
+                                        @if(Session::has('nhanvien')!=null)
+                                        <input type="text" name="manv" value="{{ Session::get('nhanvien')[0]->manv }}" readonly/>
+                                        @endif
                                     </div>
                                 </div>
+                                @endif
                                 <div class="form-right">
                                     <div class="txt-field">
                                         <label for="">Trả trước : </label>
-                                        <input type="text" required/>
+                                        <input type="text" name="tientt"required/>
                                     </div>
                                     <div class="txt-field">
                                         <label for="">Ngày lập : </label>
-                                        <input type="date" required/>
+                                        <input type="date" name="ngaylap" required/>
                                     </div>
                                     <div class="txt-field note">
                                         <label for="">Ghi chú : </label>
-                                        <input type="text" required/>
+                                        <input type="text" name="ghichu"required/>
                                     </div>
                                 </div>
                             </div>

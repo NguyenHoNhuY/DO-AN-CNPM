@@ -6,13 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class phongController extends Controller
 {
-    public function Phongform(){
-        $data = DB::select('SELECT * FROM phongs ORDER BY tang ASC');
-        return $data;
-    }
-    public function test(){
-        $data = DB::select('SELECT * FROM phongs ORDER BY tang ASC');
-        return $data;
+    public function danhsachphong(){
+        //lay ra du lieu phong'
+        $phongs = phong::all();
+        $tinhtrang = DB::select('SELECT Tinhtrang, COUNT(MaPhong) as SoLuong FROM phongs GROUP BY(Tinhtrang)');
+        return view('layout.index',compact('phongs','tinhtrang'));
+      
     }
     public function taomaPhong($bang,$cot,$tiento,$max){
         return parent::taoKhoaChinh($bang,$cot,$tiento,$max);
