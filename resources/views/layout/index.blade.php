@@ -137,7 +137,7 @@
                 <!-- danh sach cac phong -->
                 <div class="row3">
                     <div id="1" class="row3-item">
-                          <div class="number flex">
+                        <div class="number flex">
                             <h1 class="flex">Tầng 1</h1>
                         </div>
                         <div class="body">
@@ -160,7 +160,7 @@
                                                 <p>Loại : &ensp;</p>
                                                 <span>{{ $item->LoaiPhong }}</span>
                                             </div>
-                                            <p class="room-status dn">{{ $item->TinhTrang }}</p>
+                                            <p class="room-status dn">{{ $item->Tinhtrang }}</p>
                                         </div>
                                         <div class="box-button flex hide">
                                             <button class="bt-book-room" >Đặt phòng</button>
