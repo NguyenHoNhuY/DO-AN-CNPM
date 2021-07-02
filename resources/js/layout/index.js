@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     //todo click show/hide row3-item
     $(".bt-floor>button").click(function (e) {
-        let id = parseInt($(this).attr("id")-1);
+        let id = parseInt($(this).attr("id") - 1);
         $(".row3-item").addClass("dn");
         $(".row3-item").eq(id).removeClass("dn");
     });
@@ -34,6 +34,17 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
-   var status =$(".room-status").text();
-   console.log(status);
+    for (let index = 0; index < 25; index++) {
+        var status = $(".room-status").eq(index).text();
+        $(".box-icon").eq(index).addClass(status);
+
+        if (status == "full") {
+            $(".box-button>.checkout-room").eq(index).removeClass("dn");
+            $(".box-button>.bt-book-room").eq(index).addClass("dn");
+        }
+        else{
+            $(".box-button>.checkout-room").eq(index).addClass("dn");
+            $(".box-button>.bt-book-room").eq(index).removeClass("dn");
+        }
+    }
 });

@@ -257,17 +257,24 @@ header>.content {
     font-weight: bold;
 }
 
+.ct-item>p {
+    white-space: nowrap;
+}
+
 .ct-item:first-child>span {
     color: rgba(205, 97, 51, 1.0);
 }
 
 .box-button {
     flex-direction: column;
+    padding-left: 10px;
 }
 
 .box-button>button {
     margin: 5px 0;
     padding: 10px 10px;
+    width: 100px;
+    white-space: nowrap;
     outline: none;
     border: none;
     background: #3498db;
@@ -347,21 +354,28 @@ header>.content {
     height: 2px;
     background: #000;
 }
-.customer-info,.receipts{
+
+.customer-info,
+.receipts {
     width: 100%;
     height: 50%;
 }
-.pop-up form{
+
+.pop-up form {
     width: 100%;
     height: 100%;
 }
-.form-content{
+
+.form-content {
     display: flex;
 }
-.form-left,.form-right{
+
+.form-left,
+.form-right {
     width: 50%;
 }
-.txt-field{
+
+.txt-field {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -370,31 +384,39 @@ header>.content {
     padding: 0 20px;
     margin: 10px 0;
 }
-.checkbox{
+
+.checkbox {
     justify-content: space-around;
 }
-.txt-field>input{
+
+.txt-field>input {
     width: 65%;
     height: 100%;
     outline: none;
     border: none;
 }
-.txt-field>label{
+
+.txt-field>label {
     font-weight: bold;
 }
-.note{
+
+.note {
     height: 90px;
 }
-.bt-submit{
+
+.bt-submit {
     width: 100%;
 }
-.customer-info .bt-submit{
-   height: 100px;
+
+.customer-info .bt-submit {
+    height: 100px;
 }
-.receipts .bt-submit{
+
+.receipts .bt-submit {
     height: 60px;
- }
- .bt-submit>input{
+}
+
+.bt-submit>input {
     width: 150px;
     padding: 10px 0;
     border: none;
