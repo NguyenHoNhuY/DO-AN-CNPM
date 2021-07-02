@@ -27,7 +27,6 @@ $(document).ready(function () {
 
     //todo show/hide pop-up
     $(".bt-book-room").click(function (e) {
-        console.log("hahah");
         $("section.pop-up").removeClass("dn");
     });
     $(".close").click(function (e) {

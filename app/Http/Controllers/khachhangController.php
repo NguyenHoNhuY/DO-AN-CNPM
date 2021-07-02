@@ -23,6 +23,6 @@ class khachhangController extends Controller
         $khachhang->SoDienThoai = $request->sodienthoai;
         $khachhang->save();
         $request->session()->put('khachhang',[$maKH,$request->tenkh]);
-        return back()->with('thanhcong_kh','Đã thêm mới khách hàng'); 
+        return back()->with('alert_kh','Đã thêm mới khách hàng'); 
     }
 }

@@ -37,9 +37,13 @@ class nhanvienController extends Controller
         if(Auth::guard('nhanvien')->attempt(['manv'=>$taikhoan,'password' =>$matkhau])){
             $nhanvien = DB::table('nhanviens')->where('manv',$taikhoan)->select('manv','TenNV')->get();
             $request->session()->put('nhanvien',$nhanvien);
-            dd('thành công');
+            return back()->with('alert_dn','Đăng nhập thành công');
         }else{
-            dd('thất bại');
+            return back()->with('alert_dn','Đăng nhập thất bại');
         }
+    }
+    public function dangxuat(Request $request){
+        $request->session()->flush();
+        return redirect('http://localhost/CNPM/public/dangnhap');
     }
 }

@@ -87,7 +87,6 @@ class dichvuController extends Controller
                     'SoLuong' => $soluong,
                     'ThanhTien'  => $tien,
                     ]);  
-        
         }
             echo "Tạo Hóa đơn thành công";
         }else{

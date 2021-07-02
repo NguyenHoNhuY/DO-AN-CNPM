@@ -20,9 +20,8 @@
                 @endif
                 @if(Session::has('khachhang') !=null)
                   <div class="alert alert-success" role="alert">
-                     @foreach(Session::get('khachhang') as $item)
-                        <h2>{{ $item }}</h2>
-                      @endforeach
+                        <h2>{{ Session::get('khachhang')[0] }}</h2>
+                        <h2>{{ Session::get('khachhang')[1] }}</h2>
                   </div>
                 @endif
                 <form method="POST" action="{{ route('themKH') }}">

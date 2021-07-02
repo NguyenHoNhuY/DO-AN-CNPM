@@ -27,7 +27,7 @@
         echo "Thời gian ở "."<b>$songaythue</b>"."<br>";
         $tongtienthue = $songaythue * $phieuthue[0]->Gia -$phieuthue[0]->TraTruoc;
         echo "Tổng tiền thuê phòng ". number_format($tongtienthue)."vnd <br>";
-        echo "<input type='text' name='tongtien' value='$tongtienthue' readonly hidden><br>";
+        echo "<input type='text' name='tienphong' value='$tongtienthue' readonly hidden><br>";
       @endphp
       @if(isset($hoadon) && $hoadon!=null)
         @foreach ($hoadon as $item)
