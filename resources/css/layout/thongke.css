@@ -1,0 +1,72 @@
+.content>.body {
+    width: calc(100% - 20px);
+    height: calc(100% - 110px);
+    margin: 10px auto 0px auto;
+    position: relative;
+
+}
+
+.content>.body>.nav {
+    width: 100%;
+}
+
+.content>.body>.nav>button {
+    padding: 0px 20px;
+    cursor: pointer;
+    height: 40px;
+    font-size: 20px;
+    border: none;
+}
+
+.content>.body>.chart {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+    height: calc(100% - 40px);
+}
+
+.chart>form {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart>form>input {
+    height: 100%;
+    margin: 0 10px;
+}
+
+
+.chart>form>input[type="button"] {
+    width: 80px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chart>.container {
+    width: 100%;
+    height: calc(100% - 80px);
+}
+
+section.lineChart {
+    width: 100%;
+    height: 100%;
+}
+
+#myLineChart , #myBarChart{
+    width: 100% !important;
+    height: 500px !important;
+}
+.chart h2{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-color{
+    background: #e66767;
+}

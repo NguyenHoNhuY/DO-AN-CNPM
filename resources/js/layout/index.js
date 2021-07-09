@@ -17,7 +17,6 @@ $(document).ready(function () {
         $("section.pop-up").removeClass("dn");
     });
     $(".close").click(function (e) {
-        // $(this).parent('pop-up').addClass("dn");
         $("section.pop-up").addClass("dn");
     });
     //todo show/hide pop-up-info
@@ -26,6 +25,23 @@ $(document).ready(function () {
     });
     $(".pop-up-info .close").click(function (e) {
         $("section.pop-up-info").addClass("dn");
+    });
+
+    //todo show/hide chart
+    $(".nav>button").click(function (e) {
+        var id = $(this).attr("id");
+
+        if (id == "room") {
+            $(".btn-color").removeClass("btn-color");
+            $(this).addClass("btn-color");
+            $(".barChart").removeClass("dn");
+            $(".lineChart").addClass("dn");
+        } else {
+            $(".btn-color").removeClass("btn-color");
+            $(this).addClass("btn-color");
+            $(".barChart").addClass("dn");
+            $(".lineChart").removeClass("dn");
+        }
     });
 });
 $(document).ready(function () {
