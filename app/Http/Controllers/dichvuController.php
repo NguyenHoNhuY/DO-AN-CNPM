@@ -20,17 +20,21 @@ class dichvuController extends Controller
         return parent::taoKhoaChinh($bang,$cot,$tiento,$max);
     }
     public function themDV(Request $request){
+        $image =$request->file('hinhanh');
+        $imageName =time().'.'. $image->getClientOriginalExtension();
+        $image->move(('../resources/img/'),$imageName);
         $maDV = $this->taomaDV('dichvus','MaDV','DV','50');
         $dichvu = new dichvu();
         $dichvu->MaDV = $maDV;
         $dichvu->TenDV = $request->tendv;
         $dichvu->Gia = $request->gia;
+        $dichvu->HinhAnh = $imageName;
         $dichvu->save();
         return back()->with('thanhcong_dv','Đã thêm mới dịch vụ'); 
     }
     public function orderDV(){
         $data= dichvu::all();
-        return view('orderDichvu',compact('data'));
+        return view('layout.dichvu',compact('data'));
     }
     public function xulyDV($maDV,Request $request){
         $dichvu = dichvu::where('MaDV',$maDV)->first();
@@ -46,7 +50,12 @@ class dichvuController extends Controller
         $oldOrder = Session('order') ? Session('order') :null;
         $newOrder = new order($oldOrder);
         $newOrder ->xoaDV($maDV);
-        $request->session()->put('order',$newOrder);
+        if(count ($newOrder->cacdichvu) >0 ) {
+            $request->Session()->put('order',$newOrder);  
+        }
+        else{
+            $request->Session()->forget('order');
+        }
         return view('gioDV');
     }
     public function thaydoisl($maDV,$soluong,Request $request){
@@ -87,10 +96,11 @@ class dichvuController extends Controller
                     'SoLuong' => $soluong,
                     'ThanhTien'  => $tien,
                     ]);  
-        }
-            echo "Tạo Hóa đơn thành công";
+            }
+            $request->session()->forget('order');
+            return back()->with('alert_hddv',"Yêu cầu dịch vụ thành công");
         }else{
-            echo "Thất bại.Nhập mã khách hàng";
+            return back()->with('alert_hddv',"Yêu cầu nhập mã khách hàng");
         }
     }
 }

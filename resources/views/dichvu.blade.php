@@ -18,7 +18,7 @@
                 {{ Session::get('thanhcong_dv') }}
                 </div>
                 @endif
-                <form method="POST" action="{{ route('themDV') }}">
+                <form method="POST" action="{{ route('themDV') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="">Tên dịch vụ</label>
@@ -30,6 +30,11 @@
                         <input type="text" name="gia" id="gia" class="form-control" placeholder="Giá dịch vụ" aria-describedby="helpId">
                         <small id="helpId" class="text-muted">Help text</small>
                     </div>
+                    <div class="form-group">
+                      <label for="">Hình ảnh</label>
+                      <input type="file" name="hinhanh" class="form-control" aria-describedby="helpId">
+                      <small id="helpId" class="text-muted">Help text</small>
+                  </div>
                     <input type="submit" class="btn btn-primary" value="Thêm dịch vụ">
                 </form>
             </div>
