@@ -21,6 +21,7 @@ class khachhangController extends Controller
         $khachhang->DiaChi = $request->diachi;
         $khachhang->Gioitinh = $request->gioitinh;
         $khachhang->SoDienThoai = $request->sodienthoai;
+        $khachhang->TinhTrang = "Đang thuê";
         $khachhang->save();
         $request->session()->put('khachhang',[$maKH,$request->tenkh]);
         return back()->with('alert_kh','Đã thêm mới khách hàng'); 

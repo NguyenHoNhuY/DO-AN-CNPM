@@ -196,7 +196,7 @@
                                         <p>Loại : &ensp;</p>
                                         <span>{{ $item->LoaiPhong }}</span>
                                     </div>
-                                    <p class="room-status dn">{{ $item->TinhTrang }}</p>
+                                    <p class="room-status dn">{{ $item->Tinhtrang }}</p>
                                 </div>
                                 <div class="box-button flex ">
                                      <button class="bt-book-room flex" >Đặt phòng</button>
