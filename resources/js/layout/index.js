@@ -12,25 +12,20 @@ $(document).ready(function () {
         $(".row3-item").eq(id).removeClass("dn");
     });
 
-    //todo show/hide box-button
-    var check = true;
-    $(".box-icon").click(function (e) {
-        console.log("hahah");
-        if (check == true) {
-            $(this).siblings(".box-button").removeClass("hide");
-            check = false;
-        } else {
-            $(this).siblings(".box-button").addClass("hide");
-            check = true;
-        }
-    });
-
     //todo show/hide pop-up
     $(".bt-book-room").click(function (e) {
         $("section.pop-up").removeClass("dn");
     });
     $(".close").click(function (e) {
-        $(this).parent().addClass("dn");
+        // $(this).parent('pop-up').addClass("dn");
+        $("section.pop-up").addClass("dn");
+    });
+    //todo show/hide pop-up-info
+    $(".box-icon").click(function (e) {
+        $("section.pop-up-info").removeClass("dn");
+    });
+    $(".pop-up-info .close").click(function (e) {
+        $("section.pop-up-info").addClass("dn");
     });
 });
 $(document).ready(function () {
@@ -41,8 +36,7 @@ $(document).ready(function () {
         if (status == "full") {
             $(".box-button>.checkout-room").eq(index).removeClass("dn");
             $(".box-button>.bt-book-room").eq(index).addClass("dn");
-        }
-        else{
+        } else {
             $(".box-button>.checkout-room").eq(index).addClass("dn");
             $(".box-button>.bt-book-room").eq(index).removeClass("dn");
         }

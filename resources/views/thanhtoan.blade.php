@@ -23,7 +23,11 @@
         $ngayvao = $phieuthue[0]->NgayLap;
         $ngayra = date('Y-m-d');
         $diff = abs(strtotime($ngayvao) - strtotime($ngayra));
-        $songaythue = floor($diff / (60*60*24));
+        if($diff ===0){
+          $songaythue =1;
+        }else{
+          $songaythue = floor($diff / (60*60*24));
+        }
         echo "Thời gian ở "."<b>$songaythue</b>"."<br>";
         $tongtienthue = $songaythue * $phieuthue[0]->Gia -$phieuthue[0]->TraTruoc;
         echo "Tổng tiền thuê phòng ". number_format($tongtienthue)."vnd <br>";

@@ -8,11 +8,17 @@ td {
 }
 
 th {
-    padding: 20px 0;
+    font-size: 20px;
+    width: auto;
+    height: 65px;
+
 }
 
-th {
-    font-size: 20px;
+.flex-di {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 td {
@@ -66,4 +72,31 @@ td {
 
 .btn:hover {
     color: #F97F51;
+}
+
+.service-bill-table {
+    margin-top: 50px;
+}
+
+.service-bill-table td {
+    height: 60px;
+    width: auto;
+}
+
+.MaKh {
+    height: 40px;
+    font-size: 20px;
+    color: red;
+}
+
+.amount {
+    font-size: 15px;
+}
+
+.btn-minus,
+.btn-plus,
+.amount {
+    width: 35px;
+    height: 35px;
+    margin: 0 5px;
 }

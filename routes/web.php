@@ -30,8 +30,9 @@ Route::get('dangnhap', [nhanvienController::class, 'dangnhap'])->name('dangnhap'
 Route::post('checkdangnhap', [nhanvienController::class, 'checkdangnhap'])->name('kiemtra');
 Route::get('dangxuat', [nhanvienController::class, 'dangxuat'])->name('dangxuat');
 //NhanVien
-Route::get('them', [nhanvienController::class, 'them'])->name('them');
+Route::get('nhanvien', [nhanvienController::class,'them'])->name('them');
 Route::post('themnhanvien', [nhanvienController::class, 'kiemtra'])->name('themnhanvien');
+Route::get('xoanhanvien/{id}', [nhanvienController::class, 'xoaNV'])->name('xoanhanvien');
 //khachhang
 Route::get('khachhang', [khachhangController::class, 'KHform'])->name('KHform');
 Route::post('themKH', [khachhangController::class, 'themKH'])->name('themKH');
@@ -52,6 +53,7 @@ Route::post('taoHD', [dichvuController::class, 'taoHDDV'])->name('taoHDDV');
 //Phieuthue
 Route::get('phieuthue', [phieuthueController::class, 'PTform'])->name('PTform');
 Route::post('themPT', [phieuthueController::class, 'themPT'])->name('themPT');
+Route::get('chitietPT/{maphong}',[phieuthueController::class,'chitietPT'])->name('chitietPT');
 //Thanh toan
 Route::get('thanhtoan/{makh}', [thanhtoanController::class, 'thanhtoan'])->name('thanhtoan');
 Route::post('themTT', [thanhtoanController::class, 'themTT'])->name('themTT');

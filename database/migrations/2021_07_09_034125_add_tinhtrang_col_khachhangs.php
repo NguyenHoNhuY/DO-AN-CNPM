@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBophansTable extends Migration
+class AddTinhtrangColKhachhangs extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateBophansTable extends Migration
      */
     public function up()
     {
-        Schema::create('bophans', function (Blueprint $table) {
-            $table->string('MaBP');
-            $table->string('TenBP');
-            $table->string('Mota');
+        Schema::table('khachhangs', function (Blueprint $table) {
+            $table->string('TinhTrang')->nullable();
         });
     }
 
@@ -27,6 +25,8 @@ class CreateBophansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bophans');
+        Schema::table('khachhangs', function (Blueprint $table) {
+            //
+        });
     }
 }

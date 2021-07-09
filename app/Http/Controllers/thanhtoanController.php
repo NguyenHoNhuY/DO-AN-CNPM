@@ -37,11 +37,16 @@ class thanhtoanController extends Controller
         ->where('phieuthues.MaKH',$makh)
         ->update(['Tinhtrang' =>'open']);
     }
+    public function capnhatKH($makh){
+        DB::table('khachhangs')->where('khachhangs.MaKH',$makh)
+        ->update(['TinhTrang'=>'Hết thuê']);
+    }
     public function themTT(Request $request){
         $thanhtoan = new thanhtoan();
         $matt = $this->taomaTT('thanhtoans','MaTT','TT',50);
         //cap nhat lai phong
         $this->capnhatPhong($request->makh);
+        $this->capnhatKH($request->makh);
         $thanhtoan->MaTT = $matt;
         $thanhtoan->MaKH = $request->makh;
         $thanhtoan->MaNV = $request->manv;

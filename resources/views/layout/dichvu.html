@@ -13,6 +13,7 @@
         />
         <link rel="stylesheet" href="../../css/layout/index.css" />
         <link rel="stylesheet" href="../../css/layout/dichvu.css" />
+        <script src="../../../public/js/giohang.js"></script>
     </head>
     <body>
         <header>
@@ -103,42 +104,55 @@
                         </td>
                     </tr>
                 </table>
-                <div class="customer-info">
-                    <form action="">
-                        <div class="text-field">
-                            <label for="">Mã Khách Hàng</label>
-                            <input type="text" />
-                        </div>
-                        <table class="service-bill-table">
-                            <tr>
-                                <th colspan="3">Mã Khách hàng</th>
-                                <th colspan="3">kh001</th>
-                            </tr>
-                            <tr>
-                                <th colspan="6">Các dịch vụ đã chọn</th>
-                            </tr>
-                            <tr>
-                                <th>STT</th>
-                                <th>Mã dịch vụ</th>
-                                <th>Tên dịch vụ</th>
-                                <th>Đơn giá</th>
-                                <th>Số lượng</th>
-                                <th>Thành tiền</th>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>#1</td>
-                                <td>Nước suối</td>
-                                <td>15.000đ</td>
-                                <td>1</td>
-                                <td>15.000đ</td>
-                            </tr>
-                        </table>
-                        <div class="flex">
-                            <input class="btn btn-accept" type="submit" value="xác nhận">
-                        </div>
-                    </form>
-                </div>
+                <form action="">
+                    <table class="service-bill-table">
+                        <tr>
+                            <th colspan="6">
+                                Mã Khách hàng
+                                <input class="MaKh" type="text" value="kh001" />
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="6">HOÁ ĐƠN DỊCH VỤ</th>
+                        </tr>
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên dịch vụ</th>
+                            <th>Đơn giá</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                            <th>Xóa dịch vụ</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Nước suối</td>
+                            <td>15.000đ</td>
+                            <td class="flex">
+                                <button class="btn btn-minus flex">-</button>
+                                <input class="amount" type="text" value="1" />
+                                <button class="btn btn-plus flex">+</button>
+                            </td>
+                            <td>15.000đ</td>
+                            <td><button class="btn bt-del">Xóa</button></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Tổng số lượng dịch vụ yêu cầu : <span>3</span>
+                            </th>
+                            <th colspan="5" rowspan="2"></th>
+                        </tr>
+                        <tr>
+                            <th>Tổng tiền dịch vụ : <span>1000000đ</span></th>
+                        </tr>
+                    </table>
+                    <div class="flex">
+                        <input
+                            class="btn btn-accept"
+                            type="submit"
+                            value="xác nhận"
+                        />
+                    </div>
+                </form>
             </div>
         </section>
     </body>
