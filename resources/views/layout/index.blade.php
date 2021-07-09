@@ -42,7 +42,7 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="av-item img-user m-10 flex">
-                                <img src="img/sting.jpg" alt="" />
+                                
                             </div>
                         </a>
                     </div>
@@ -68,7 +68,7 @@
                     <li class="menu-item active">
                         <a href="#">Đặt/Trả phòng</a>
                     </li>
-                    <li class="menu-item"><a href="#">Dịch vụ</a></li>
+                    <li class="menu-item"><a href="http://localhost/CNPM/public/order">Dịch vụ</a></li>
                     <li class="menu-item">
                         <a href="#">Quản lí nhân viên</a>
                     </li>
