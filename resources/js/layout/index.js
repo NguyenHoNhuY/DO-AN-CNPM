@@ -43,6 +43,13 @@ $(document).ready(function () {
             $(".lineChart").removeClass("dn");
         }
     });
+    //todo show/hide pop-up-pay
+    $(".checkout-room").click(function (e) {
+        $(".pop-up-pay").removeClass("dn");
+    });
+    $(".close-pay").click(function (e) {
+        $(".pop-up-pay").addClass("dn");
+    });
 });
 $(document).ready(function () {
     for (let index = 0; index < 25; index++) {

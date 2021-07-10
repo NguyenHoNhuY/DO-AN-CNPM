@@ -285,12 +285,15 @@ header>.content {
     color: #fff;
     cursor: pointer;
 }
-.bt-book-room{
+
+.bt-book-room {
     background: rgba(205, 97, 51, 1.0);
 }
-.checkout-room{
+
+.checkout-room {
     background: #38ada9;
 }
+
 .pop-up>.close {
     position: fixed;
     top: 7%;
@@ -305,7 +308,8 @@ header>.content {
     cursor: pointer;
 }
 
-.pop-up>.body {
+.pop-up>.body,
+.pop-up-pay>.body {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -324,7 +328,8 @@ header>.content {
     background: #e66767;
 }
 
-.pop-up>.body>.content {
+.pop-up>.body>.content,
+.pop-up-pay>.body>.content {
     background: rgba(189, 195, 199, .4);
     width: 100%;
     height: calc(100% - 50px);
@@ -364,7 +369,8 @@ header>.content {
 }
 
 .pop-up .customer-info,
-.receipts {
+.receipts,
+.service {
     width: 100%;
     height: 50%;
 }
@@ -491,4 +497,129 @@ header>.content {
     margin-top: 50px;
     padding: 10px 20px;
     background: rgba(189, 195, 199, 1);
+}
+
+
+/* css of pop-up-pay */
+.service form {
+    width: 100%;
+    height: 100%;
+}
+
+.service .form-content {
+    width: 100%;
+    height: 75%;
+}
+
+.service .form-content table {
+    width: 100%;
+    overflow-y: scroll;
+    display: block;
+}
+
+table,
+tr,
+th,
+td {
+    border: 1px solid #333;
+    border-collapse: collapse;
+}
+
+.service .form-content table thead {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.service .form-content table td,
+.service .form-content table th {
+    text-align: center;
+    height: 50px;
+}
+
+.service .form-content table th {
+    background: rgba(189, 195, 199, 1);
+}
+
+.service .form-content table td:nth-child(1) {
+    width: 14%;
+}
+
+.service .form-content table td:nth-child(2) {
+    width: 40%;
+}
+
+.service .form-content table td:nth-child(3) {
+    width: 40%;
+}
+
+.pop-up-pay>.body>header {
+    background: #e66767;
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.pop-up-pay>.body>header>h1 {
+    grid-column: 2/3;
+}
+
+.pop-up-pay>.body>header>.close-pay {
+    grid-column: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.pop-up-pay>.body>header>.close-pay>button {
+    width: 30px;
+    height: 29px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.pop-up-pay .customer-info {
+    width: 100%;
+    height: 42%;
+}
+
+.pop-up-pay .customer-info form {
+    width: 100%;
+    height: 100%;
+}
+
+.total {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.total span {
+    color: rgba(205, 97, 51, 1.0);
+}
+
+.pop-up-pay .submit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.pop-up-pay .submit input {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+.pop-up-pay .submit input:hover {
+    background: #000;
+    border: none;
+    color: #fff;
 }
