@@ -42,7 +42,7 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="av-item img-user m-10 flex">
-                                
+
                             </div>
                         </a>
                     </div>
@@ -388,6 +388,18 @@
                     <a href="#">Thêm dịch vụ</a>
                 </div>
             </form>
+        </div>
+    </section>
+    <section class="pop-up-pay dn">
+        <div class="close">
+            <button class="flex"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="body">
+            <header class="flex">
+                <h1>Nhận phòng - 01</h1>
+            </header>
+
+
         </div>
     </section>
 </body>
