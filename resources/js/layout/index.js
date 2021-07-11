@@ -13,12 +13,7 @@ $(document).ready(function () {
     });
 
     //todo show/hide pop-up
-    $(".bt-book-room").click(function (e) {
-        $("section.pop-up").removeClass("dn");
-    });
-    $(".close").click(function (e) {
-        $("section.pop-up").addClass("dn");
-    });
+  
     //todo show/hide chart
     $(".nav>button").click(function (e) {
         var id = $(this).attr("id");
@@ -34,6 +29,13 @@ $(document).ready(function () {
             $(".barChart").addClass("dn");
             $(".lineChart").removeClass("dn");
         }
+    });
+    //todo show/hide pop-up-pay
+    $(".checkout-room").click(function (e) {
+        $(".pop-up-pay").removeClass("dn");
+    });
+    $(".close-pay").click(function (e) {
+        $(".pop-up-pay").addClass("dn");
     });
 });
 $(document).ready(function () {
