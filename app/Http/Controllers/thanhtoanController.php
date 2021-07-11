@@ -9,23 +9,30 @@ use App\Models\phong;
 use App\Models\hoadondv;
 class thanhtoanController extends Controller
 {
-    public function thanhtoan($makh){
+    public function thanhtoan($maphong){
         //tim phieu thue cua khach hang
         $phieuthue = DB::table('khachhangs')->join('phieuthues','khachhangs.MaKH','phieuthues.MaKH')
                 ->join('phongs','phieuthues.MaPhong','phongs.MaPhong')
                 ->select('khachhangs.MaKH','TenKH','NgayLap','TraTruoc','Gia','MaNV')
-                ->where('khachhangs.MaKH',$makh)->get();
+                ->where([['phongs.MaPhong',$maphong],['khachhangs.TinhTrang','Đang thuê']])->get();
         // tim cac dich vu khach hang yeu cau
-        $hoadon =DB::table('hoadondvs')->select('MaHDDV','TongTienDV','NgayLap')->where('MaKH',$makh)->orderByDesc('MaHDDV')->get();
+        $hoadon =DB::table('phieuthues')->join('phongs','phieuthues.MaPhong','phongs.MaPhong')
+                ->join('khachhangs','khachhangs.MaKH','phieuthues.MaKH')
+                ->join('hoadondvs','hoadondvs.MaKH','khachhangs.MaKH')
+                ->where([['phongs.MaPhong',$maphong],['khachhangs.TinhTrang','Đang thuê']])
+                ->select('MaHDDV','TongTienDV','phieuthues.NgayLap')
+                ->get();
         if($hoadon->isEmpty()){ 
            return view('thanhtoan',compact('phieuthue'));
          }else{
-            $dichvu = DB::table('hoadondvs')->join('chitietdvs','hoadondvs.MaHDDV','chitietdvs.MaHDDV')
-            ->join('dichvus','dichvus.MaDV','chitietdvs.MaDV')
-            ->select('chitietdvs.MaHDDV','dichvus.MaDV','TenDV','SoLuong','ThanhTien','Gia')
-            ->where('hoadondvs.MaKH',$makh)
-            ->orderByDesc('chitietdvs.MaHDDV')->distinct()
-            ->get();
+            $dichvu = DB::table('phieuthues')->join('phongs','phieuthues.MaPhong','phongs.MaPhong')
+                ->join('khachhangs','khachhangs.MaKH','phieuthues.MaKH')
+                ->join('hoadondvs','hoadondvs.MaKH','khachhangs.MaKH')
+                ->join('chitietdvs','hoadondvs.MaHDDV','chitietdvs.MaHDDV')
+                ->join('dichvus','dichvus.MaDV','chitietdvs.MaDV')
+                ->where([['phongs.MaPhong',$maphong],['khachhangs.TinhTrang','Đang thuê']])
+                ->select('chitietdvs.MaHDDV','dichvus.MaDV','TenDV','SoLuong','ThanhTien','dichvus.Gia')
+                ->get();
             return view('thanhtoan',compact('phieuthue','hoadon','dichvu')); 
          }
     }
@@ -43,7 +50,7 @@ class thanhtoanController extends Controller
     }
     public function themTT(Request $request){
         $thanhtoan = new thanhtoan();
-        $matt = $this->taomaTT('thanhtoans','MaTT','TT',50);
+        $matt = $this->taomaTT('thanhtoans','MaTT','TT',100);
         //cap nhat lai phong
         $this->capnhatPhong($request->makh);
         $this->capnhatKH($request->makh);

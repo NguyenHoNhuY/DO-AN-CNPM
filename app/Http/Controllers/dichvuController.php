@@ -33,7 +33,7 @@ class dichvuController extends Controller
         return back()->with('thanhcong_dv','Đã thêm mới dịch vụ'); 
     }
     public function orderDV(){
-        $data= dichvu::all();
+        $data= DB::table('dichvus')->orderBy('Gia')->get();
         return view('layout.dichvu',compact('data'));
     }
     public function xulyDV($maDV,Request $request){

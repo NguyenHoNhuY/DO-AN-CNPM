@@ -66,7 +66,7 @@
             <div class="menu">
                 <ul class="main-menu">
                     <li class="menu-item active">
-                        <a href="#">Đặt/Trả phòng</a>
+                        <a href="http://localhost/CNPM/public/phong">Đặt/Trả phòng</a>
                     </li>
                     <li class="menu-item"><a href="http://localhost/CNPM/public/order">Dịch vụ</a></li>
                     <li class="menu-item">
@@ -76,7 +76,7 @@
                         <a href="#">Quản lí khách hàng</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#">Thống kê báo cáo</a>
+                        <a href="http://localhost/CNPM/public/thongke">Thống kê báo cáo</a>
                     </li>
                 </ul>
             </div>
@@ -141,7 +141,7 @@
                             <div class="box-content">
                                 <div class="ct-item room-code">
                                     <p>Mã phòng :&ensp;</p>
-                                    <span>{{ $item->MaPhong }}</span>
+                                    <span class='mp'>{{ $item->MaPhong }}</span>
                                 </div>
                                 <div class="ct-item room-price">
                                     <p>Giá : &ensp;</p>
@@ -176,7 +176,7 @@
                             <div class="box-content">
                                 <div class="ct-item room-code">
                                     <p>Mã phòng :&ensp;</p>
-                                    <span>{{ $item->MaPhong }}</span>
+                                    <span class="mp">{{ $item->MaPhong }}</span>
                                 </div>
                                 <div class="ct-item room-price">
                                     <p>Giá : &ensp;</p>
@@ -341,55 +341,8 @@
             </div>
         </div>
     </section>
-    <section class="pop-up-info dn">
-        <header>
-            <h1 class="flex"> Thông Tin Khách Hàng</h1>
-            <div class="close flex">
-                <button class="flex"><i class="fas fa-times"></i></button>
-            </div>
-        </header>
-        <div class="body">
-            <form action="">
-                <div class="text-field dn">
-                    <input type="hidden" name="Mã khách hàng">
-                </div>
-                <div class="text-field">
-                    <label for="">Tên khách hàng</label>
-                    <input type="text">
-                </div>
-                <div class="text-field">
-                    <label for="">CMND</label>
-                    <input type="text">
-                </div>
-                <div class="text-field">
-                    <label for="">Địa chỉ</label>
-                    <input type="text">
-                </div>
-                <div class="text-field">
-                    <label for="">Giới tính</label>
-                    <input type="text">
-                </div>
-                <div class="text-field">
-                    <label for="">Số điện thoại</label>
-                    <input type="text">
-                </div>
-                <div class="text-field dn">
-                    <input type="hidden" name="Tình trạng">
-                </div>
-                <div class="text-field">
-                    <label for=""> Trả trước</label>
-                    <input type="text">
-                </div>
-                <div class="text-field">
-                    <label for="">Ghi chú</label>
-                    <input type="text">
-                </div>
-                <div class="btn-submit flex ">
-                    <a href="#">Thêm dịch vụ</a>
-                </div>
-            </form>
-        </div>
-    </section>
+    <div class="chitietPT">
+    </div>
 </body>
 
 </html>

@@ -44,16 +44,18 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="av-item img-user m-10 flex">
-                                <img src="../../img/sting.jpg" alt="" />
+                               
                             </div>
                         </a>
                     </div>
                     <div class="us-name m-10">
-                        <a href="#">Login</a>
+                        @if(Session::has('nhanvien')!=null)
+                            <p>{{ Session::get('nhanvien')[0]->TenNV }}</p>
+                        @endif
                     </div>
                 </div>
                 <div class="logout">
-                    <a href="#"> <i class="fas fa-sign-out-alt"></i></a>
+                    <a href="http://localhost/CNPM/public/dangxuat">  <i class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
         </div>
@@ -65,17 +67,17 @@
             </header>
             <div class="menu">
                 <ul class="main-menu">
-                    <li class="menu-item active">
-                        <a href="#">Đặt/Trả phòng</a>
+                    <li class="menu-item ">
+                        <a href="http://localhost/CNPM/public/phong">Đặt/Trả phòng</a>
                     </li>
-                    <li class="menu-item"><a href="#">Dịch vụ</a></li>
+                    <li class="menu-item"><a href="http://localhost/CNPM/public/order">Dịch vụ</a></li>
                     <li class="menu-item">
                         <a href="#">Quản lí nhân viên</a>
                     </li>
                     <li class="menu-item">
                         <a href="#">Quản lí khách hàng</a>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item active">
                         <a href="#">Thống kê báo cáo</a>
                     </li>
                 </ul>

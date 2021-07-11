@@ -38,7 +38,7 @@ class phieuthueController extends Controller
                         ['khachhangs.TinhTrang','Đang thuê']])
                 ->select('khachhangs.*','phieuthues.TraTruoc','phieuthues.GhiChu')
                 ->get();
-        return $query;
+        return view('chitietPT',compact('query'));
     }
     
    

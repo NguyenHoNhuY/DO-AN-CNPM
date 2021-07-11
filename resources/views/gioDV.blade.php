@@ -1,10 +1,11 @@
 @if(Session::has('order')!=null)
 <form method="POST" action="{{ route('taoHDDV') }}">
+    @csrf
     <table class="service-bill-table">
         <tr>
             <th colspan="6">
                 Mã Khách hàng
-                <input class="MaKh" type="text" />
+                <input class="MaKh" name="makh" type="text" />
             </th>
         </tr>
         @if(Session::has('order')!=null)
@@ -26,7 +27,7 @@
             <td>{{ $item['thongtinDV']->Gia }}</td>
             <td class="flex">
                 <button type="button" class="btn btn-minus flex qtyminus">-</button>
-                <input class="amount" name='quanty' type="text" id="{{ $item['thongtinDV']->MaDV }}"value='{{ $item['soluong'] }}' />
+                <input class="amount"  type="text" id="{{ $item['thongtinDV']->MaDV }}"value='{{ $item['soluong'] }}' />
                 <button type="button"class="btn btn-plus flex qtyplus" >+</button>
             </td>
             <td>{{ $item['giatien'] }}</td>

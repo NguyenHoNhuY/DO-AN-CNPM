@@ -70,7 +70,7 @@
                             <a href="http://localhost/CNPM/public/phong">Đặt/Trả phòng</a>
                         </li>
                         <li class="menu-item active">
-                            <a href="#">Dịch vụ</a>
+                            <a href="http://localhost/CNPM/public/order">Dịch vụ</a>
                         </li>
                         <li class="menu-item">
                             <a href="#">Quản lí nhân viên</a>
@@ -79,7 +79,7 @@
                             <a href="#">Quản lí khách hàng</a>
                         </li>
                         <li class="menu-item">
-                            <a href="#">Thống kê báo cáo</a>
+                            <a href="http://localhost/CNPM/public/thongke">Thống kê báo cáo</a>
                         </li>
                     </ul>
                 </div>
@@ -129,9 +129,16 @@
                     @csrf
                     <table class="service-bill-table">
                         <tr>
+                            @php 
+                            if(isset($_GET['makh'])) 
+                                $makh = $_GET['makh'];
+                            else {
+                                $makh = "";
+                            }
+                            @endphp
                             <th colspan="6">
                                 Mã Khách hàng
-                                <input class="MaKh" name="makh" type="text"  />
+                                <input class="MaKh" name="makh" type="text" value="{{$makh}}"  />
                             </th>
                         </tr>
                         @if(Session::has('order')!=null)
@@ -146,14 +153,16 @@
                             <th>Thành tiền</th>
                             <th>Xóa dịch vụ</th>
                         </tr>
+                        @php $temp =0 @endphp
                         @foreach(Session::get('order')->cacdichvu as $item)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $temp }}</td>
+                            @php $temp++ @endphp
                             <td>{{ $item['thongtinDV']->TenDV }}</td>
                             <td>{{ $item['thongtinDV']->Gia }}</td>
                             <td class="flex">
                                 <button type="button" class="btn btn-minus flex qtyminus">-</button>
-                                <input class="amount" name='quanty' type="text" id="{{ $item['thongtinDV']->MaDV }}"value='{{ $item['soluong'] }}' />
+                                <input class="amount"  type="text" id="{{ $item['thongtinDV']->MaDV }}"value='{{ $item['soluong'] }}' />
                                 <button type="button"class="btn btn-plus flex qtyplus" >+</button>
                             </td>
                             <td>{{ $item['giatien'] }}</td>

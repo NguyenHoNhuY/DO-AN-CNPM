@@ -55,9 +55,8 @@ Route::get('phieuthue', [phieuthueController::class, 'PTform'])->name('PTform');
 Route::post('themPT', [phieuthueController::class, 'themPT'])->name('themPT');
 Route::get('chitietPT/{maphong}',[phieuthueController::class,'chitietPT'])->name('chitietPT');
 //Thanh toan
-Route::get('thanhtoan/{makh}', [thanhtoanController::class, 'thanhtoan'])->name('thanhtoan');
+Route::get('thanhtoan/{maphong}', [thanhtoanController::class, 'thanhtoan'])->name('thanhtoan');
 Route::post('themTT', [thanhtoanController::class, 'themTT'])->name('themTT');
-Route::get('test/{makh}', [thanhtoanController::class, 'capnhatPhong']);
 //Thong ke
 Route::get('thongke', [thanhtoanController::class, 'thongke'])->name('thongke');
 Route::get('doanhthuPhong', [thanhtoanController::class, 'doanhthuPhong']);

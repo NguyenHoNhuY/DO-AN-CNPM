@@ -19,14 +19,6 @@ $(document).ready(function () {
     $(".close").click(function (e) {
         $("section.pop-up").addClass("dn");
     });
-    //todo show/hide pop-up-info
-    $(".box-icon").click(function (e) {
-        $("section.pop-up-info").removeClass("dn");
-    });
-    $(".pop-up-info .close").click(function (e) {
-        $("section.pop-up-info").addClass("dn");
-    });
-
     //todo show/hide chart
     $(".nav>button").click(function (e) {
         var id = $(this).attr("id");
@@ -48,7 +40,6 @@ $(document).ready(function () {
     for (let index = 0; index < 25; index++) {
         var status = $(".room-status").eq(index).text();
         $(".box-icon").eq(index).addClass(status);
-
         if (status == "full") {
             $(".box-button>.checkout-room").eq(index).removeClass("dn");
             $(".box-button>.bt-book-room").eq(index).addClass("dn");
@@ -57,4 +48,22 @@ $(document).ready(function () {
             $(".box-button>.bt-book-room").eq(index).removeClass("dn");
         }
     }
+});
+$(document).ready(function () {
+    $(".box").click(function (e) { 
+        e.preventDefault();
+        let maphong = ($(this).find('.mp').text());
+        $.get("http://localhost/CNPM/public/chitietPT/"+maphong,
+            function (data, textStatus, jqXHR) {
+                $('.chitietPT').empty();
+                $('.chitietPT').html(data);
+                //todo show/hide pop-up-info
+                $("section.pop-up-info").removeClass("dn");
+                $(".pop-up-info .close").click(function (e) {
+                    $("section.pop-up-info").addClass("dn");
+                });
+            },
+            "html"
+        );  
+    });
 });
