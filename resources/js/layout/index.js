@@ -11,9 +11,13 @@ $(document).ready(function () {
         $(".row3-item").addClass("dn");
         $(".row3-item").eq(id).removeClass("dn");
     });
-
-    //todo show/hide pop-up
-  
+    //todo show/hide pop-up book room
+    $(".bt-book-room").click(function (e) {
+        $("section.pop-up").removeClass("dn");
+    });
+    $(".close").click(function (e) {
+        $("section.pop-up").addClass("dn");
+    });
     //todo show/hide chart
     $(".nav>button").click(function (e) {
         var id = $(this).attr("id");
@@ -52,20 +56,20 @@ $(document).ready(function () {
     }
 });
 $(document).ready(function () {
-    $(".box").click(function (e) { 
+    $(".box-icon").click(function (e) { 
         e.preventDefault();
-        let maphong = ($(this).find('.mp').text());
+        let maphong = ($(this).parent().find('.mp').text());
         $.get("http://localhost/CNPM/public/chitietPT/"+maphong,
-            function (data, textStatus, jqXHR) {
-                $('.chitietPT').empty();
-                $('.chitietPT').html(data);
-                //todo show/hide pop-up-info
-                $("section.pop-up-info").removeClass("dn");
-                $(".pop-up-info .close").click(function (e) {
-                    $("section.pop-up-info").addClass("dn");
-                });
-            },
-            "html"
+        function (data, textStatus, jqXHR) {
+            $('.chitietPT').empty();
+            $('.chitietPT').html(data);
+            //todo show/hide pop-up-info
+            $("section.pop-up-info").removeClass("dn");
+            $(".pop-up-info .close").click(function (e) {
+                $("section.pop-up-info").addClass("dn");
+            });
+        },
+        "html"
         );  
     });
 });

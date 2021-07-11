@@ -54,32 +54,7 @@
                 </div>
             </div>
         </header>
-        <section class="main flex">
-            <div class="sidebar">
-                <header>
-                    <h1>MENU</h1>
-                </header>
-                <div class="menu">
-                    <ul class="main-menu">
-                        <li class="menu-item">
-                            <a href="http://localhost/CNPM/public/phong">Đặt/Trả phòng</a>
-                        </li>
-                        <li class="menu-item active">
-                            <a href="http://localhost/CNPM/public/order">Dịch vụ</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#">Quản lí nhân viên</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#">Quản lí khách hàng</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="http://localhost/CNPM/public/thongke">Thống kê báo cáo</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        
     </header>
     <section class="main flex">
         <div class="sidebar">

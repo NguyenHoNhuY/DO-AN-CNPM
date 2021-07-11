@@ -288,7 +288,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="receipts ">
+                <div class="receipts">
                     <form method="POST" action="{{ route('themPT') }}">
                         @csrf
                         <header class="form-header flex">
@@ -343,5 +343,142 @@
     </section>
     <div class="chitietPT">
     </div>
+    <section class="pop-up-pay dn">
+        <div class="body">
+            <header class="flex">
+                <h1>Thanh toán phòng - 01</h1>
+                <div class="close-pay">
+                    <button class="flex"><i class="fas fa-times"></i></button>
+                </div>
+            </header>
+            <div class="content">
+                <div class="customer-info">
+                    <form action="">
+                        <header class="form-header flex">
+                            <h2>Thông tin khách hàng</h2>
+                        </header>
+                        <div class="form-content">
+                            <div class="form-left">
+                                <div class="txt-field">
+                                    <label for="">Mã khách hàng : </label>
+                                    <input type="text" required />
+                                </div>
+                                <div class="txt-field">
+                                    <label for="">Tên khách hàng : </label>
+                                    <input type="text" required />
+                                </div>
+                                <div class="txt-field">
+                                    <label for="">Mã nhân viên : </label>
+                                    <input type="text" required />
+                                </div>
+                                <div class="txt-field">
+                                    <label for="">Ngày Lập : </label>
+                                    <input type="date" required />
+                                </div>
+                            </div>
+                            <div class="form-right">
+                                <div class="txt-field">
+                                    <label for="">Giá phòng: </label>
+                                    <input type="text" required />
+                                </div>
+                                <div class="txt-field">
+                                    <label for="">Trả trước : </label>
+                                    <input type="number" required />
+                                </div>
+                                <div class="txt-field">
+                                    <label for="">Ngày vào : </label>
+                                    <input type="text" required />
+                                </div>
+                                <div class="txt-field">
+                                    <label for="">Ngày ra : </label>
+                                    <input type="text" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="total">
+                            <p class="time">Thời gian ở : <span>26</span></p>
+                            <p class="total-money">Tổng tiền thuê phòng : <span>1000000đ</span></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="service">
+                    <form action="">
+                        <header class="form-header flex">
+                            <h2>Thông tin dịch vụ</h2>
+                        </header>
+                        <div class="form-content">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Mã hóa đơn dịch vụ</th>
+                                        <th>Ngày lập</th>
+                                        <th>Tổng tiền dịch vụ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>SKA01</td>
+                                        <td>22/02/2021</td>
+                                        <td>1000000đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SKA01</td>
+                                        <td>22/02/2021</td>
+                                        <td>1000000đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SKA01</td>
+                                        <td>22/02/2021</td>
+                                        <td>1000000đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SKA01</td>
+                                        <td>22/02/2021</td>
+                                        <td>1000000đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SKA01</td>
+                                        <td>22/02/2021</td>
+                                        <td>1000000đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SKA01</td>
+                                        <td>22/02/2021</td>
+                                        <td>1000000đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SKA01</td>
+                                        <td>22/02/2021</td>
+                                        <td>1000000đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SKA01</td>
+                                        <td>22/02/2021</td>
+                                        <td>1000000đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SKA01</td>
+                                        <td>22/02/2021</td>
+                                        <td>1000000đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SKA01</td>
+                                        <td>22/02/2021</td>
+                                        <td>1000000đ</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="total">
+                            <p class="total-money">Tổng tiền thanh toán : <span>1000000đ</span></p>
+                        </div>
+                        <div class="submit">
+                            <input type="submit" value="Thanh Toán">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
