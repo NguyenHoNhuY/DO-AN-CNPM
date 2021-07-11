@@ -369,8 +369,7 @@ header>.content {
 }
 
 .pop-up .customer-info,
-.receipts,
-.service {
+.receipts {
     width: 100%;
     height: 50%;
 }
@@ -501,23 +500,28 @@ header>.content {
 
 
 /* css of pop-up-pay */
-/* .service form {
+.pop-up-pay form {
     width: 100%;
     height: 100%;
-} */
+}
 table,
-tr,
 th,
 td {
-    border: 1px solid #000;
+    border: .5px solid #000;
     text-align: center;
 }
-th,td{
+
+th,
+td {
     padding: 5px 0;
+    color: #000;
+}
+td{
+    font-weight: 500;
 }
 .service .form-content {
     width: 100%;
-    height: 70%;
+    height: 60%;
     display: block;
     overflow-y: scroll;
     background: #fff;
@@ -526,9 +530,9 @@ th,td{
 .service .form-content .box-service {
     border: 1px solid #000;
 }
-.service .form-content .box-service .box-item{
-   
-}
+
+.service .form-content .box-service .box-item {}
+
 .service .form-content .box-service .box-item,
 .service .form-content .box-service .total-service {
     display: flex;
@@ -589,11 +593,11 @@ th,td{
     width: 100%;
     height: 42%;
 }
-
-/* .pop-up-pay .customer-info form {
+.pop-up-pay .service {
     width: 100%;
-    height: 100%;
-} */
+    height: 58%;
+}
+
 
 .total {
     display: flex;
@@ -608,9 +612,11 @@ th,td{
     justify-content: center;
     padding: 10px 0;
 }
-.total-money span{
+
+.total-money span {
     color: red !important;
 }
+
 .total span {
     color: rgba(205, 97, 51, 1.0);
 }
@@ -620,7 +626,7 @@ th,td{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .pop-up-pay .submit input {
