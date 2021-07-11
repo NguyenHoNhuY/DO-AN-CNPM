@@ -31,7 +31,7 @@ td {
 }
 
 .service-list-table {
-    height: 50%;
+    height: 55%;
     overflow-y: scroll;
     display: block;
 }
@@ -159,6 +159,9 @@ td {
     overflow-y: scroll;
     display: block;
 }
+.service-bill-table th span{
+    color: red;
+}
 
 .service-bill-table thead {
     position: sticky;
@@ -214,4 +217,127 @@ td {
 
 .btn-accept{
     margin: 10px 0;
+}
+.add-del{
+    width: 100%;
+  padding: 20px 0;
+}
+.add-del button,.edit-service{
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+.add-del .add-service{
+    background: green;
+}
+.add-del .del-service{
+    background: red;
+}
+.edit-service{
+    background: yellow;
+}
+
+.pop-up-service {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 350px;
+    background: rgba(189, 195, 199, 1);
+    border-radius: 10px;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.pop-up-service header,
+.pop-up-del-service header {
+    width: 100%;
+    height: 60px;
+    background: #e66767;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+}
+
+.pop-up-service header h1,
+.pop-up-del-service header h1 {
+    grid-column: 2/6;
+}
+
+.pop-up-service header .close-service,
+.close-del,
+.close-edit {
+    grid-column: 6/7;
+}
+
+.pop-up-service .close-service button,
+.close-del button,
+.close-edit button {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.pop-up-service .content,
+.pop-up-del-service .content {
+    width: 100%;
+    height: 100%;
+}
+
+.pop-up-service form,
+.pop-up-del-service form {
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pop-up-service label {
+    font-weight: bold;
+}
+
+form .btn-submit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+form .btn-submit input {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #000;
+    font-size: 20px;
+}
+
+form .btn-submit input:hover {
+    background: #000;
+    color: #fff;
+}
+
+.pop-up-del-service {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    background: rgba(189, 195, 199, 1);
+    border-radius: 10px;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.pop-up-del-service .content {
+    padding-top: 50px;
 }

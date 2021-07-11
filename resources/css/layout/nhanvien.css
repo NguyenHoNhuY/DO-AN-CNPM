@@ -1,0 +1,169 @@
+.table {
+    margin-top: 10px;
+    padding-left: 10px;
+    width: 100%;
+    height: 80%;
+    display: block;
+    overflow-y: scroll;
+}
+
+table,
+tr,
+td,
+th {
+    border: .5px solid #555;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.list-employ-table {
+    width: 100%;
+}
+
+.list-employ-table td,
+.list-employ-table th {
+    padding: 10px 0;
+}
+
+.list-employ-table th {
+    font-size: 20px;
+}
+
+.list-employ-table thead {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: #999;
+}
+
+.btn-employ {
+    width: 100%;
+    height: calc(20% - 70px);
+}
+
+.btn-employ button {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    margin: 0 20px;
+}
+
+
+button.btn-add {
+    background: green;
+}
+
+button.btn-del {
+    background: red;
+}
+
+button.btn-edit {
+    background: yellow;
+    padding: 5px 20px;
+    cursor: pointer;
+
+}
+
+.pop-up-employ {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 700px;
+    background: rgba(189, 195, 199, 1);
+    border-radius: 10px;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.pop-up-employ header,
+.pop-up-del-employ header {
+    width: 100%;
+    height: 60px;
+    background: #e66767;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+}
+
+.pop-up-employ header h1,
+.pop-up-del-employ header h1 {
+    grid-column: 2/6;
+}
+
+.pop-up-employ header .close-employ,
+.close-del,
+.close-edit {
+    grid-column: 6/7;
+}
+
+.pop-up-employ .close-employ button,
+.close-del button,
+.close-edit button {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.pop-up-employ .content,
+.pop-up-del-employ .content {
+    width: 100%;
+    height: 100%;
+}
+
+.pop-up-employ form,
+.pop-up-del-employ form {
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pop-up-employ label {
+    font-weight: bold;
+}
+
+form .btn-submit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+form .btn-submit input {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #000;
+    font-size: 20px;
+}
+
+form .btn-submit input:hover {
+    background: #000;
+    color: #fff;
+}
+
+.pop-up-del-employ {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    background: rgba(189, 195, 199, 1);
+    border-radius: 10px;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.pop-up-del-employ .content {
+    padding-top: 50px;
+}

@@ -1,0 +1,37 @@
+.table {
+    margin-top: 10px;
+    padding-left: 10px;
+    width: 100%;
+    height: 80%;
+    display: block;
+    overflow-y: scroll;
+}
+
+table,
+tr,
+td,
+th {
+    border: .5px solid #555;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.list-customer-table {
+    width: 100%;
+}
+
+.list-customer-table td,
+.list-customer-table th {
+    padding: 10px 0;
+}
+
+.list-customer-table th {
+    font-size: 20px;
+}
+
+.list-customer-table thead {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: #999;
+}
