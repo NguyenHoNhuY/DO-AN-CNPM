@@ -5,6 +5,7 @@ $(document).ready(function () {
         $.get("http://localhost/CNPM/public/xulyDV/"+maDV,
             function (data, textStatus, jqXHR) {
                 Render(data);
+                location.reload();
             },
             "html"
         );
@@ -16,6 +17,7 @@ $(document).ready(function () {
         $.get("http://localhost/CNPM/public/xoaDV/"+madv,
            function (data, textStatus, jqXHR) {
                Render(data);
+               location.reload();
            },
            "html"
        ); 
@@ -64,6 +66,7 @@ function thaydoisl(id,quanty){
         dataType: "html",
         success: function (response) {
             Render(response);
+            location.reload();
         }
     });
  }

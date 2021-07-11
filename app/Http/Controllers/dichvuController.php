@@ -102,7 +102,7 @@ class dichvuController extends Controller
                     ]);  
             }
             $request->session()->forget('order');
-            return back()->with('alert_hddv',"Yêu cầu dịch vụ thành công");
+            return redirect("http://localhost/CNPM/public/order")->with('alert_hddv',"Yêu cầu dịch vụ thành công");
         }else{
             return back()->with('alert_hddv',"Yêu cầu nhập mã khách hàng");
         }

@@ -56,7 +56,6 @@ class thanhtoanController extends Controller
         ->update(['TinhTrang'=>'Hết thuê']);
     }
     public function themTT(Request $request){
-        dd($request);
         $thanhtoan = new thanhtoan();
         $matt = $this->taomaTT('thanhtoans','MaTT','TT',100);
         //cap nhat lai phong
@@ -69,7 +68,7 @@ class thanhtoanController extends Controller
         $thanhtoan->TienPhong = $request->tienphong;
         $thanhtoan->TongTienTT = $request->tongtientt;
         $thanhtoan->save();
-        ///thanh toan thanh cong
+        return back()->with('alert_tt',"Thanh toán thành công");
     }
     public function thongke(){
         return view('thongke');

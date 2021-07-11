@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="icon/fontawesome-free-5.15.3-web/css/all.css" />
     <link rel="stylesheet" href="css/layout/index.css" />
     <link rel="stylesheet" href="css/layout/dichvu.css" />
+     <!-- link font -->
+     <link rel="preconnect" href="https://fonts.gstatic.com" />
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
     <!-- sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- jquery -->
@@ -20,15 +23,22 @@
 </head>
 
 <body>
-    @if(Session::has('alert_hddv')!=null)
-    <script>
-        swal({
-            title: "{!! Session::get('alert_hddv') !!}",
-            icon: "success",
-            button: "Xong",
-        })
-    </script>
-    @endif
+    <!-- Alert -->
+    <div class="alert">
+        @if(Session::has('alert_hddv')!=null)
+            <script>
+                swal({
+                    title: "{!! Session::get('alert_hddv') !!}",
+                    icon: "success",
+                    button: "Xong",
+                })
+            </script>
+            @php
+            Session::forget('alert_hddv')
+            @endphp
+        @endif
+    </div>
+    <!-- Alert -->
     <header>
         <div class="content">
             <div class="logo">
@@ -128,7 +138,7 @@
                 </tbody>
             </table>
             <div id="gioDV" >
-                {{-- <form method="POST" action="{{ route('taoHDDV') }}">
+                 <form method="POST" action="{{ route('taoHDDV') }}">
                     @csrf
                     <table class="service-bill-table">
                         <tr>
@@ -186,10 +196,9 @@
                     <div class="flex">
                         <input class="btn btn-accept" type="submit" value="xác nhận" />
                     </div>
-                </form> --}}
+                </form> 
             </div>
         </div>
     </section>
 </body>
-
 </html>

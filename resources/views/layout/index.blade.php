@@ -29,6 +29,56 @@
 </head>
 
 <body>
+    <!--Alert-->
+    <div class="alert">
+        @if(Session::has('alert_kh')!=null)
+            <script>
+                swal({
+                    title: "{!! Session::get('alert_kh') !!}",
+                    icon: "success",
+                    button: "Xong",
+                })
+                $(document).ready(function() {
+                    $('.customer-info').addClass('dn');
+                    $('.receipts').removeClass('dn');
+                });
+            </script>
+            @php
+            Session::forget('alert_kh')
+            @endphp
+        @else
+        <script>
+            $(document).ready(function() {
+                $('.receipts').addClass('dn');
+            });
+        </script>
+        @endif
+        @if(Session::has('alert_pt')!=null)
+            <script>
+                swal({
+                    title: "{!! Session::get('alert_pt') !!}",
+                    icon: "success",
+                    button: "Xong",
+                })
+            </script>
+            @php
+            Session::forget('alert_pt')
+            @endphp
+        @endif
+        @if(Session::has('alert_tt')!=null)
+            <script>
+                swal({
+                    title: "{!! Session::get('alert_tt') !!}",
+                    icon: "success",
+                    button: "Thành công",
+                })
+            </script>
+            @php
+            Session::forget('alert_pt')
+            @endphp
+        @endif
+    </div>
+    <!-- Alert -->
     <header>
         <div class="content">
             <div class="logo">
@@ -208,42 +258,6 @@
             <header class="flex">
                 <h1>Nhận phòng - 01</h1>
             </header>
-            <!--Alert-->
-            @if(Session::has('alert_kh')!=null)
-            <script>
-                swal({
-                    title: "{!! Session::get('alert_kh') !!}",
-                    icon: "success",
-                    button: "Xong",
-                })
-                $(document).ready(function() {
-                    $('.customer-info').addClass('dn');
-                    $('.receipts').removeClass('dn');
-                });
-            </script>
-            @php
-            Session::forget('alert_kh')
-            @endphp
-            @else
-            <script>
-                $(document).ready(function() {
-                    $('.receipts').addClass('dn');
-                });
-            </script>
-            @endif
-            @if(Session::has('alert_pt')!=null)
-            <script>
-                swal({
-                    title: "{!! Session::get('alert_pt') !!}",
-                    icon: "success",
-                    button: "Xong",
-                })
-            </script>
-            @php
-            Session::forget('alert_pt')
-            @endphp
-            @endif
-            <!-- Alert -->
             <div class="content">
                 <div class="customer-info">
                     <form method="POST" action="{{ route('themKH') }}">

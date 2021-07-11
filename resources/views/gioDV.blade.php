@@ -5,7 +5,14 @@
         <tr>
             <th colspan="6">
                 Mã Khách hàng
-                <input class="MaKh" name="makh" type="text" />
+                @php 
+                    if(isset($_GET['makh'])) 
+                        $makh = $_GET['makh'];
+                    else {
+                        $makh = "";
+                    }
+                @endphp
+                <input class="MaKh" name="makh" type="text"  value="{{ $makh }}"/>
             </th>
         </tr>
         @if(Session::has('order')!=null)
