@@ -506,53 +506,58 @@ header>.content {
     height: 100%;
 }
 
-.service .form-content {
-    width: 100%;
-    height: 75%;
-}
-
-.service .form-content table {
-    width: 100%;
-    overflow-y: scroll;
-    display: block;
-}
-
 table,
 tr,
 th,
 td {
-    border: 1px solid #333;
+    border: 1px solid #000;
+    text-align: center;
+}
+th,td{
+    padding: 5px 0;
+}
+.service .form-content {
+    width: 100%;
+    height: 70%;
+    display: block;
+    overflow-y: scroll;
+    background: #fff;
+}
+
+.service .form-content .box-service {
+    border: 1px solid #000;
+}
+.service .form-content .box-service .box-item{
+   
+}
+.service .form-content .box-service .box-item,
+.service .form-content .box-service .total-service {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 80px;
+    padding: 10px 80px 10px 0px;
+}
+
+.service .form-content .box-service .box-item p,
+.service .form-content .box-service .total-service p {
+    font-weight: bold;
+}
+
+.service .form-content .box-service .box-item p:last-child {
+    margin-left: 30px;
+}
+
+.service .form-content .box-service .box-item span,
+.service .form-content .box-service .total-service span {
+    color: rgba(205, 97, 51, 1.0);
+}
+
+.service .form-content .box-service table {
+    width: 100%;
     border-collapse: collapse;
 }
 
-.service .form-content table thead {
-    width: 100%;
-    position: sticky;
-    top: 0;
-    left: 0;
-}
-
-.service .form-content table td,
-.service .form-content table th {
-    text-align: center;
-    height: 50px;
-}
-
-.service .form-content table th {
-    background: rgba(189, 195, 199, 1);
-}
-
-.service .form-content table td:nth-child(1) {
-    width: 14%;
-}
-
-.service .form-content table td:nth-child(2) {
-    width: 40%;
-}
-
-.service .form-content table td:nth-child(3) {
-    width: 40%;
-}
+.service .form-content .box-table {}
 
 .pop-up-pay>.body>header {
     background: #e66767;
@@ -594,11 +599,19 @@ td {
 .total {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: 20px;
     font-weight: bold;
+    padding: 0px 100px;
 }
 
+.service .total {
+    justify-content: center;
+    padding: 10px 0;
+}
+.total-money span{
+    color: red !important;
+}
 .total span {
     color: rgba(205, 97, 51, 1.0);
 }
@@ -618,6 +631,7 @@ td {
     border: 1px solid #000;
     cursor: pointer;
 }
+
 .pop-up-pay .submit input:hover {
     background: #000;
     border: none;

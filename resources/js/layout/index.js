@@ -13,6 +13,12 @@ $(document).ready(function () {
     });
     //todo show/hide pop-up book room
     $(".bt-book-room").click(function (e) {
+        let maphong = $(this)
+            .parent(".box-button")
+            .siblings(".box-content")
+            .find(".mp")
+            .text();
+        $(".pop-up h1").text("Nhận phòng - " + maphong);
         $("section.pop-up").removeClass("dn");
     });
     $(".close").click(function (e) {
@@ -36,6 +42,12 @@ $(document).ready(function () {
     });
     //todo show/hide pop-up-pay
     $(".checkout-room").click(function (e) {
+        let maphong = $(this)
+            .parent(".box-button")
+            .siblings(".box-content")
+            .find(".mp")
+            .text();
+        $(".pop-up-pay h1").text("Thanh toán phòng - " + maphong);
         $(".pop-up-pay").removeClass("dn");
     });
     $(".close-pay").click(function (e) {
@@ -56,20 +68,21 @@ $(document).ready(function () {
     }
 });
 $(document).ready(function () {
-    $(".box-icon").click(function (e) { 
+    $(".box-icon").click(function (e) {
         e.preventDefault();
-        let maphong = ($(this).parent().find('.mp').text());
-        $.get("http://localhost/CNPM/public/chitietPT/"+maphong,
-        function (data, textStatus, jqXHR) {
-            $('.chitietPT').empty();
-            $('.chitietPT').html(data);
-            //todo show/hide pop-up-info
-            $("section.pop-up-info").removeClass("dn");
-            $(".pop-up-info .close").click(function (e) {
-                $("section.pop-up-info").addClass("dn");
-            });
-        },
-        "html"
-        );  
+        let maphong = $(this).parent().find(".mp").text();
+        $.get(
+            "http://localhost/CNPM/public/chitietPT/" + maphong,
+            function (data, textStatus, jqXHR) {
+                $(".chitietPT").empty();
+                $(".chitietPT").html(data);
+                //todo show/hide pop-up-info
+                $("section.pop-up-info").removeClass("dn");
+                $(".pop-up-info .close").click(function (e) {
+                    $("section.pop-up-info").addClass("dn");
+                });
+            },
+            "html"
+        );
     });
 });

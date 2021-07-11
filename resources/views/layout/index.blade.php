@@ -42,7 +42,7 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="av-item img-user m-10 flex">
-                                
+
                             </div>
                         </a>
                     </div>
@@ -407,67 +407,114 @@
                             <h2>Thông tin dịch vụ</h2>
                         </header>
                         <div class="form-content">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Mã hóa đơn dịch vụ</th>
-                                        <th>Ngày lập</th>
-                                        <th>Tổng tiền dịch vụ</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>SKA01</td>
-                                        <td>22/02/2021</td>
-                                        <td>1000000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SKA01</td>
-                                        <td>22/02/2021</td>
-                                        <td>1000000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SKA01</td>
-                                        <td>22/02/2021</td>
-                                        <td>1000000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SKA01</td>
-                                        <td>22/02/2021</td>
-                                        <td>1000000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SKA01</td>
-                                        <td>22/02/2021</td>
-                                        <td>1000000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SKA01</td>
-                                        <td>22/02/2021</td>
-                                        <td>1000000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SKA01</td>
-                                        <td>22/02/2021</td>
-                                        <td>1000000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SKA01</td>
-                                        <td>22/02/2021</td>
-                                        <td>1000000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SKA01</td>
-                                        <td>22/02/2021</td>
-                                        <td>1000000đ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SKA01</td>
-                                        <td>22/02/2021</td>
-                                        <td>1000000đ</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="box-service">
+                                <div class="box-item">
+                                    <p>Mã HĐDV : <span> KSA0123</span></p>
+                                    <p>Ngày lập : <span>20/02/2001</span></p>
+                                </div>
+                                <div class="box-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th colspan="6">Danh sách hóa đơn dịch vụ</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Stt</th>
+                                                <th>Mã dịch vụ</th>
+                                                <th>Tên dịch vụ</th>
+                                                <th>Đơn giá</th>
+                                                <th>Số lượng</th>
+                                                <th>Thành tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>dr212</td>
+                                                <td>Nước lọc</td>
+                                                <td>15000đ</td>
+                                                <td>2</td>
+                                                <td>30000đ</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="total-service">
+                                        <p class="total-money">Tổng tiền dịch vụ : <span>1000000đ</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-service">
+                                <div class="box-item">
+                                    <p>Mã HĐDV : <span> KSA0123</span></p>
+                                    <p>Ngày lập : <span>20/02/2001</span></p>
+                                </div>
+                                <div class="box-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th colspan="6">Danh sách hóa đơn dịch vụ</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Stt</th>
+                                                <th>Mã dịch vụ</th>
+                                                <th>Tên dịch vụ</th>
+                                                <th>Đơn giá</th>
+                                                <th>Số lượng</th>
+                                                <th>Thành tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>dr212</td>
+                                                <td>Nước lọc</td>
+                                                <td>15000đ</td>
+                                                <td>2</td>
+                                                <td>30000đ</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="total-service">
+                                        <p class="total-money">Tổng tiền dịch vụ : <span>1000000đ</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-service">
+                                <div class="box-item">
+                                    <p>Mã HĐDV : <span> KSA0123</span></p>
+                                    <p>Ngày lập : <span>20/02/2001</span></p>
+                                </div>
+                                <div class="box-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th colspan="6">Danh sách hóa đơn dịch vụ</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Stt</th>
+                                                <th>Mã dịch vụ</th>
+                                                <th>Tên dịch vụ</th>
+                                                <th>Đơn giá</th>
+                                                <th>Số lượng</th>
+                                                <th>Thành tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>dr212</td>
+                                                <td>Nước lọc</td>
+                                                <td>15000đ</td>
+                                                <td>2</td>
+                                                <td>30000đ</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="total-service">
+                                        <p class="total-money">Tổng tiền dịch vụ : <span>1000000đ</span></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="total">
                             <p class="total-money">Tổng tiền thanh toán : <span>1000000đ</span></p>
@@ -481,4 +528,5 @@
         </div>
     </section>
 </body>
+
 </html>
