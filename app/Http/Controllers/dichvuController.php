@@ -75,7 +75,9 @@ class dichvuController extends Controller
     }
     public function taoHDDV(Request $request){
         if($request->makh){
-            $khachhang = khachhang::select('MaKH')->where('MaKH',$request->makh)->first();
+            $khachhang = khachhang::select('MaKH')
+                        ->where('MaKH',$request->makh)
+                        ->first();
             $hoadon = new hoadondv();
             $mahddv = $this->taomaHDDV('hoadondvs','MaHDDV','HDDV','100');
             $hoadon->MaHDDV = $mahddv;
@@ -85,7 +87,9 @@ class dichvuController extends Controller
             $khachhang->hoadonDVs()->save($hoadon);
             ////danh sach id san pham trong gio hang
             $dichvuTrongOrder = $request->session()->get('order')->cacdichvu;
-            $temp = hoadondv::select('MaHDDV')->where('MaHDDV',$mahddv)->first();
+            $temp = hoadondv::select('MaHDDV')
+                            ->where('MaHDDV',$mahddv)
+                            ->first();
             foreach($dichvuTrongOrder as $dichvu=>$val){
                 $madv=$val['thongtinDV']->MaDV;
                 $soluong = $val['soluong'];

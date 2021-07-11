@@ -48,10 +48,17 @@ $(document).ready(function () {
             .find(".mp")
             .text();
         $(".pop-up-pay h1").text("Thanh toán phòng - " + maphong);
-        $(".pop-up-pay").removeClass("dn");
-    });
-    $(".close-pay").click(function (e) {
-        $(".pop-up-pay").addClass("dn");
+        $.get("http://localhost/CNPM/public/thanhtoan/"+maphong,
+            function (data, textStatus, jqXHR) {
+                $('.traphong').empty();
+                $('.traphong').html(data);
+                $(".pop-up-pay").removeClass("dn");
+                $(".close-pay").click(function (e) {
+                    $(".pop-up-pay").addClass("dn");
+                });
+            },
+            "html"
+        );
     });
 });
 $(document).ready(function () {

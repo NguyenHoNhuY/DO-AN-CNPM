@@ -11,21 +11,25 @@ class thanhtoanController extends Controller
 {
     public function thanhtoan($maphong){
         //tim phieu thue cua khach hang
-        $phieuthue = DB::table('khachhangs')->join('phieuthues','khachhangs.MaKH','phieuthues.MaKH')
+        $phieuthue = DB::table('khachhangs')
+                ->join('phieuthues','khachhangs.MaKH','phieuthues.MaKH')
                 ->join('phongs','phieuthues.MaPhong','phongs.MaPhong')
-                ->select('khachhangs.MaKH','TenKH','NgayLap','TraTruoc','Gia','MaNV')
+                ->select('khachhangs.MaKH','TenKH','NgayLap','TraTruoc','Gia','MaNV','phongs.MaPhong')
                 ->where([['phongs.MaPhong',$maphong],['khachhangs.TinhTrang','Đang thuê']])->get();
         // tim cac dich vu khach hang yeu cau
-        $hoadon =DB::table('phieuthues')->join('phongs','phieuthues.MaPhong','phongs.MaPhong')
+        $hoadon =DB::table('phieuthues')
+                ->join('phongs','phieuthues.MaPhong','phongs.MaPhong')
                 ->join('khachhangs','khachhangs.MaKH','phieuthues.MaKH')
                 ->join('hoadondvs','hoadondvs.MaKH','khachhangs.MaKH')
                 ->where([['phongs.MaPhong',$maphong],['khachhangs.TinhTrang','Đang thuê']])
-                ->select('MaHDDV','TongTienDV','phieuthues.NgayLap')
+                ->select('MaHDDV','TongTienDV','hoadondvs.NgayLap')
+                ->orderByDesc('hoadondvs.NgayLap')
                 ->get();
         if($hoadon->isEmpty()){ 
-           return view('thanhtoan',compact('phieuthue'));
+           return view('traphong',compact('phieuthue'));
          }else{
-            $dichvu = DB::table('phieuthues')->join('phongs','phieuthues.MaPhong','phongs.MaPhong')
+            $dichvu = DB::table('phieuthues')
+            ->join('phongs','phieuthues.MaPhong','phongs.MaPhong')
                 ->join('khachhangs','khachhangs.MaKH','phieuthues.MaKH')
                 ->join('hoadondvs','hoadondvs.MaKH','khachhangs.MaKH')
                 ->join('chitietdvs','hoadondvs.MaHDDV','chitietdvs.MaHDDV')
@@ -33,22 +37,26 @@ class thanhtoanController extends Controller
                 ->where([['phongs.MaPhong',$maphong],['khachhangs.TinhTrang','Đang thuê']])
                 ->select('chitietdvs.MaHDDV','dichvus.MaDV','TenDV','SoLuong','ThanhTien','dichvus.Gia')
                 ->get();
-            return view('thanhtoan',compact('phieuthue','hoadon','dichvu')); 
-         }
+            return view('traphong',compact('phieuthue','hoadon','dichvu')); 
+         } 
+         return $hoadon;
     }
     public function taomaTT($bang,$cot,$tiento,$max){
         return parent::taoKhoaChinh($bang,$cot,$tiento,$max);
     }
     public function capnhatPhong($makh){
-        DB::table('phieuthues')->join('phongs','phieuthues.MaPhong','phongs.MaPhong')
+        DB::table('phieuthues')
+        ->join('phongs','phieuthues.MaPhong','phongs.MaPhong')
         ->where('phieuthues.MaKH',$makh)
         ->update(['Tinhtrang' =>'open']);
     }
     public function capnhatKH($makh){
-        DB::table('khachhangs')->where('khachhangs.MaKH',$makh)
+        DB::table('khachhangs')
+        ->where('khachhangs.MaKH',$makh)
         ->update(['TinhTrang'=>'Hết thuê']);
     }
     public function themTT(Request $request){
+        dd($request);
         $thanhtoan = new thanhtoan();
         $matt = $this->taomaTT('thanhtoans','MaTT','TT',100);
         //cap nhat lai phong
@@ -69,13 +77,20 @@ class thanhtoanController extends Controller
     public function doanhthuPhong(Request $request){ 
        $ngaybatdau = $request->tungay;
        $ngayketthuc =$request->denngay;
-       $query = DB::select("SELECT NgayLap ,SUM(TienPhong)as TongTienPhong,SUM(TongTienTT) as TongTien FROM thanhtoans WHERE NgayLap >= '$ngaybatdau' && NgayLap <= '$ngayketthuc' GROUP BY day(NgayLap),NgayLap DESC");
+       $query = DB::select("SELECT NgayLap ,SUM(TienPhong) as TongTienPhong,SUM(TongTienTT) as TongTien 
+                            FROM thanhtoans 
+                            WHERE NgayLap >= '$ngaybatdau' && NgayLap <= '$ngayketthuc' 
+                            GROUP BY day(NgayLap),NgayLap  
+                            ORDER BY NgayLap ASC");
        return view('chart.barChart',compact('query'));  
     }
     public function doanhthuDV(Request $request){
        $ngaybatdau = $request->tungay;
        $ngayketthuc =$request->denngay;
-       $query =DB::select("SELECT NgayLap ,SUM(TongTienDV)as TongTienDV FROM hoadondvs WHERE NgayLap >= '$ngaybatdau' && NgayLap <= '$ngayketthuc' GROUP BY day(NgayLap),NgayLap DESC");
+       $query =DB::select("SELECT NgayLap ,SUM(TongTienDV)as TongTienDV FROM hoadondvs 
+                           WHERE NgayLap >= '$ngaybatdau' && NgayLap <= '$ngayketthuc' 
+                           GROUP BY day(NgayLap),NgayLap 
+                           ORDER BY NgayLap ASC");
        return view('chart.lineChart',compact('query'));
     }
 }

@@ -9,9 +9,10 @@ class phongController extends Controller
     public function danhsachphong(){
         //lay ra du lieu phong'
         $phongs = phong::all();
-        $tinhtrang = DB::select('SELECT Tinhtrang, COUNT(MaPhong) as SoLuong FROM phongs GROUP BY(Tinhtrang)');
+        $tinhtrang = DB::select('SELECT Tinhtrang, COUNT(MaPhong) as SoLuong 
+                                FROM phongs 
+                                GROUP BY(Tinhtrang)');
         return view('layout.index',compact('phongs','tinhtrang'));
-      
     }
     public function taomaPhong($bang,$cot,$tiento,$max){
         return parent::taoKhoaChinh($bang,$cot,$tiento,$max);
@@ -40,6 +41,7 @@ class phongController extends Controller
                 ->update(['LoaiPhong' =>$request->loaiphong,
                           'Gia' => $request->gia,
                           'Tinhtrang'=> $request->tinhtrang]);         
-         return back()->with('thanhcong_sp','Thông tin của phòng '.$request->maphong.' đã được chỉnh sửa');
+         return back()->with('thanhcong_sp','Thông tin của phòng'
+                        .$request->maphong.' đã được chỉnh sửa');
      }
 }

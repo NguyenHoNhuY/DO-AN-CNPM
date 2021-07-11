@@ -501,11 +501,10 @@ header>.content {
 
 
 /* css of pop-up-pay */
-.service form {
+/* .service form {
     width: 100%;
     height: 100%;
-}
-
+} */
 table,
 tr,
 th,
@@ -591,10 +590,10 @@ th,td{
     height: 42%;
 }
 
-.pop-up-pay .customer-info form {
+/* .pop-up-pay .customer-info form {
     width: 100%;
     height: 100%;
-}
+} */
 
 .total {
     display: flex;

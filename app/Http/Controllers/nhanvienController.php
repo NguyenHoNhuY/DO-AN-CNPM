@@ -17,7 +17,8 @@ class nhanvienController extends Controller
         $bophan = bophan::where('MaBP', $request->mabp)->first();
         $nhanvien = new nhanvien();
         $nhanvien->manv = $request->manv;
-        $nhanvien->password = password_hash($request->password,PASSWORD_BCRYPT);//ma hoa password;
+        //ma hoa password;
+        $nhanvien->password = password_hash($request->password,PASSWORD_BCRYPT);
         $nhanvien->TenNV = $request->tennv;
         $nhanvien->NgaySinh = $request->ngaysinh;
         $nhanvien->gioitinh = $request->gioitinh;
@@ -26,7 +27,7 @@ class nhanvienController extends Controller
         $nhanvien->CMND = $request->cmnd;
         $nhanvien->chucvu = $request->chucvu;
         $nhanvien->luong = $request->luong;
-        $bophan->nhanviens()->save($nhanvien);//them nhân viên vào database;
+        $bophan->nhanviens()->save($nhanvien);
     }
     public function dangnhap(){
         return view('layout.login');
@@ -35,7 +36,10 @@ class nhanvienController extends Controller
         $taikhoan = $request->taikhoan;
         $matkhau = $request->matkhau;
         if(Auth::guard('nhanvien')->attempt(['manv'=>$taikhoan,'password' =>$matkhau])){
-            $nhanvien = DB::table('nhanviens')->where('manv',$taikhoan)->select('manv','TenNV')->get();
+            $nhanvien = DB::table('nhanviens')
+                        ->where('manv',$taikhoan)
+                        ->select('manv','TenNV')
+                        ->get();
             $request->session()->put('nhanvien',$nhanvien);
             return back()->with('alert_dn','Đăng nhập thành công');
         }else{

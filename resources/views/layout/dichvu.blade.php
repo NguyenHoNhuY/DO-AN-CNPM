@@ -53,8 +53,7 @@
                     </div>
                 </div>
             </div>
-        </header>
-        
+        </div>
     </header>
     <section class="main flex">
         <div class="sidebar">

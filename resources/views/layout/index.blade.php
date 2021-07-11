@@ -199,7 +199,6 @@
             </div>
             @endfor
         </div>
-        </div>
     </section>
     <section class="pop-up dn">
         <div class="close">
@@ -244,6 +243,7 @@
             Session::forget('alert_pt')
             @endphp
             @endif
+            <!-- Alert -->
             <div class="content">
                 <div class="customer-info">
                     <form method="POST" action="{{ route('themKH') }}">
@@ -341,8 +341,11 @@
             </div>
         </div>
     </section>
+    <!--Xem chi tiet khach hang dang thue phong -->
     <div class="chitietPT">
     </div>
+    <!--Tra phong-->
+    <div class="traphong">
     <section class="pop-up-pay dn">
         <div class="body">
             <header class="flex">
@@ -527,6 +530,6 @@
             </div>
         </div>
     </section>
+    </div>
 </body>
-
 </html>

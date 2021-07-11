@@ -33,7 +33,8 @@ class phieuthueController extends Controller
         return back()->with('alert_pt','Đặt phòng thành công');
     }
     public function chitietPT($maphong){
-        $query = DB::table('phieuthues')->join('khachhangs','phieuthues.MaKH','khachhangs.MaKH')
+        $query = DB::table('phieuthues')
+                ->join('khachhangs','phieuthues.MaKH','khachhangs.MaKH')
                 ->where([['MaPhong',$maphong],
                         ['khachhangs.TinhTrang','Đang thuê']])
                 ->select('khachhangs.*','phieuthues.TraTruoc','phieuthues.GhiChu')
