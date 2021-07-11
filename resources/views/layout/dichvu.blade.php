@@ -52,6 +52,9 @@
                         @endif
                     </div>
                 </div>
+                <div class="logout">
+                    <a href="http://localhost/CNPM/public/dangxuat"> <i class="fas fa-sign-out-alt"></i></a>
+                </div>
             </div>
         </div>
     </header>
@@ -75,7 +78,7 @@
                         <a href="#">Quản lí khách hàng</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#">Thống kê báo cáo</a>
+                        <a href="http://localhost/CNPM/public/thongke">Thống kê báo cáo</a>
                     </li>
                 </ul>
             </div>
@@ -124,8 +127,8 @@
                     @endforeach
                 </tbody>
             </table>
-            <div id="gioDV" class="">
-                <form method="POST" action="{{ route('taoHDDV') }}">
+            <div id="gioDV" >
+                {{-- <form method="POST" action="{{ route('taoHDDV') }}">
                     @csrf
                     <table class="service-bill-table">
                         <tr>
@@ -183,7 +186,7 @@
                     <div class="flex">
                         <input class="btn btn-accept" type="submit" value="xác nhận" />
                     </div>
-                </form>
+                </form> --}}
             </div>
         </div>
     </section>

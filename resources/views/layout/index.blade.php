@@ -346,7 +346,7 @@
     </div>
     <!--Tra phong-->
     <div class="traphong">
-    <section class="pop-up-pay dn">
+    {{-- <section class="pop-up-pay dn">
         <div class="body">
             <header class="flex">
                 <h1>Thanh toán phòng - 01</h1>
@@ -529,7 +529,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     </div>
 </body>
 </html>
