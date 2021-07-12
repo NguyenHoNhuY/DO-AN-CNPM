@@ -127,9 +127,13 @@ button.btn-edit {
 }
 
 .pop-up-employ label {
+    white-space: nowrap;
     font-weight: bold;
 }
-
+select{
+    width: 60%;
+    height: 100%;
+}
 form .btn-submit {
     width: 100%;
     display: flex;
