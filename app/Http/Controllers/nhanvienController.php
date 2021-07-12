@@ -35,8 +35,13 @@ class nhanvienController extends Controller
         return back()->with('alert_tnv',"Đã thêm mới nhân viên");
     }
     public function xoaNV(Request $request){
-        nhanvien::where('MaNV',$request->manv)->delete();
-        return back()->with('alert_xnv','Đã xóa nhân viên '.$request->manv);
+        $nhanvien = nhanvien::find($request->manv);
+        if($nhanvien !== null){
+            nhanvien::where('MaNV',$request->manv)->delete();
+            return back()->with('alert_xnv','Đã xóa nhân viên '.$request->manv);
+        }else{
+            return back()->with('fail_xnv','Mã nhân viên không tồn tại');
+        }
     }
     public function suaNVform($manv){
         $nhanvien = nhanvien::findOrFail($manv);

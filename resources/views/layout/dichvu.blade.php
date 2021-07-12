@@ -64,7 +64,7 @@
         Session::forget('alert_xdv')
         @endphp
         @endif
-         <!-- Sửa DV -->
+         <!-- Sửa DV Thành Công-->
          @if(Session::has('alert_sdv')!=null)
          <script>
              swal({
@@ -75,6 +75,20 @@
          </script>
          @php
          Session::forget('alert_sdv')
+         @endphp
+         @endif
+          <!-- Xóa DV Thất Bại -->
+         @if(Session::has('fail_xdv')!=null)
+         <script>
+             swal({
+                 title:"Thất bại !!!",
+                 text: "{!! Session::get('fail_xdv') !!}",
+                 icon: "error",
+                 button: "OK",
+             })
+         </script>
+         @php
+         Session::forget('fail_xdv')
          @endphp
          @endif
     </div>

@@ -53,7 +53,7 @@
             Session::forget('alert_tnv')
             @endphp
             @endif
-            <!-- Xóa NV -->
+            <!-- Xóa NV Thành Công-->
             @if(Session::has('alert_xnv')!=null)
             <script>
                 swal({
@@ -64,6 +64,20 @@
             </script>
             @php
             Session::forget('alert_xnv')
+            @endphp
+            @endif
+            <!-- Xóa NV Thất Bại -->
+            @if(Session::has('fail_xnv')!=null)
+            <script>
+                swal({
+                    title: "Thất bại !!!",
+                    text: "{!! Session::get('fail_xnv') !!}",
+                    icon: "error",
+                    button: "OK",
+                })
+            </script>
+            @php
+            Session::forget('fail_xnv')
             @endphp
             @endif
             <!-- Sửa NV -->

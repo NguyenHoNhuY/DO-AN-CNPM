@@ -34,11 +34,15 @@ class dichvuController extends Controller
         return back()->with('alert_tdv','Đã thêm mới dịch vụ'); 
     }
     public function xoaDV(Request $request){
-        $temp = dichvu::find($request->madv);
-        $hinhanh = $temp->HinhAnh;
-        File::delete('../resources/img/'.$hinhanh);
-        dichvu::where('MaDV' ,$request->madv)->delete();
-        return back()->with('alert_xdv','Đã xóa dịch vụ '.$request->madv);  
+        $dichvu = dichvu::find($request->madv);
+        if($dichvu !== null){
+            $hinhanh = $dichvu->HinhAnh;
+            File::delete('../resources/img/'.$hinhanh);
+            dichvu::where('MaDV' ,$request->madv)->delete();
+            return back()->with('alert_xdv','Đã xóa dịch vụ '.$request->madv);
+        }else{
+            return back()->with('fail_xdv','Mã dịch vụ không hợp lệ');
+        }  
     }
     public function suaDVform($madv){
         $dichvu = dichvu::findOrFail($madv);
@@ -60,6 +64,7 @@ class dichvuController extends Controller
         }
         $dichvu->save();
         return back()->with('alert_sdv','Đã sửa thông tin dịch vụ '. $request->madv);
+
     }
     public function orderDV(){
         $data= DB::table('dichvus')->orderBy('Gia')->get();
