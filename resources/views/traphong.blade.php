@@ -102,16 +102,16 @@
                                             <td>1</td>
                                             <td>{{ $key->MaDV }}</td>
                                             <td>{{ $key->TenDV }}</td>
-                                            <td>{{ $key->Gia }}</td>
+                                            <td>{{ number_format($key->Gia) }}đ</td>
                                             <td>{{ $key->SoLuong }}</td>
-                                            <td>{{ $key->SoLuong * $key->Gia }}</td>
+                                            <td>{{ number_format($key->SoLuong * $key->Gia) }}đ</td>
                                         </tr>
                                         @endif
                                         @endforeach
                                     </tbody>
                                 </table>
                                 <div class="total-service">
-                                    <p class="total-money">Tổng tiền dịch vụ : <span>{{ $item->TongTienDV }}đ</span></p>
+                                    <p class="total-money">Tổng tiền dịch vụ : <span>{{ number_format($item->TongTienDV) }}đ</span></p>
                                 </div>
                             </div>
                         </div>

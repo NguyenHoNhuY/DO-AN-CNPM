@@ -322,7 +322,7 @@
 
                                 <div class="txt-field">
                                     <label for="">Mã phòng : </label>
-                                    <input type="text" name="maphong" required />
+                                    <input type="text" class="maphong" name="maphong" readonly />
                                 </div>
                                 <div class="txt-field">
                                     <label for="">Mã nhân viên : </label>

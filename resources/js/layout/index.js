@@ -18,6 +18,7 @@ $(document).ready(function () {
             .siblings(".box-content")
             .find(".mp")
             .text();
+        $('.maphong').attr("value", maphong);
         $(".pop-up h1").text("Nhận phòng - " + maphong);
         $("section.pop-up").removeClass("dn");
     });
