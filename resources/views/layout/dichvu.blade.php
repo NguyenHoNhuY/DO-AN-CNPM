@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="icon/fontawesome-free-5.15.3-web/css/all.css" />
     <link rel="stylesheet" href="css/layout/index.css" />
     <link rel="stylesheet" href="css/layout/dichvu.css" />
-     <!-- link font -->
-     <link rel="preconnect" href="https://fonts.gstatic.com" />
-     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+    <!-- link font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
     <!-- sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- jquery -->
@@ -26,16 +26,16 @@
     <!-- Alert -->
     <div class="alert">
         @if(Session::has('alert_hddv')!=null)
-            <script>
-                swal({
-                    title: "{!! Session::get('alert_hddv') !!}",
-                    icon: "success",
-                    button: "Xong",
-                })
-            </script>
-            @php
-            Session::forget('alert_hddv')
-            @endphp
+        <script>
+            swal({
+                title: "{!! Session::get('alert_hddv') !!}",
+                icon: "success",
+                button: "Xong",
+            })
+        </script>
+        @php
+        Session::forget('alert_hddv')
+        @endphp
         @endif
     </div>
     <!-- Alert -->
@@ -97,14 +97,15 @@
             <header class="flex">
                 <h2>Dịch Vụ</h2>
             </header>
+            <div class="add-del flex">
+                <button class="add-service">Thêm</button>
+                <button class="del-service">Xóa</button>
+            </div>
             <table class="service-list-table">
                 <thead>
                     <tr>
                         <th colspan="6" class="tittle-table">
                             DANH SÁCH DỊCH VỤ
-                            <button href="#">
-                                <i class="fas fa-plus"></i>
-                            </button>
                         </th>
                     </tr>
                     <tr>
@@ -113,7 +114,7 @@
                         <th>MÃ DỊCH VỤ</th>
                         <th>TÊN DỊCH VỤ</th>
                         <th>ĐƠN GIÁ</th>
-                        <th>ORDER</th>
+                        <th>CHỨC NĂNG</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -132,26 +133,27 @@
                         <td>{{ $item->Gia }}</td>
                         <td>
                             <button class="btn btn-add order">Yêu cầu</button>
+                            <button class="edit-service">Sửa</button>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-            <div id="gioDV" >
-                 <form method="POST" action="{{ route('taoHDDV') }}">
+            <div id="gioDV">
+                <form method="POST" action="{{ route('taoHDDV') }}">
                     @csrf
                     <table class="service-bill-table">
                         <tr>
-                            @php 
-                            if(isset($_GET['makh'])) 
-                                $makh = $_GET['makh'];
+                            @php
+                            if(isset($_GET['makh']))
+                            $makh = $_GET['makh'];
                             else {
-                                $makh = "";
+                            $makh = "";
                             }
                             @endphp
                             <th colspan="6">
                                 Mã Khách hàng
-                                <input class="MaKh" name="makh" type="text" value="{{$makh}}"  />
+                                <input class="MaKh" name="makh" type="text" value="{{$makh}}" />
                             </th>
                         </tr>
                         @if(Session::has('order')!=null)
@@ -175,8 +177,8 @@
                             <td>{{ $item['thongtinDV']->Gia }}</td>
                             <td class="flex">
                                 <button type="button" class="btn btn-minus flex qtyminus">-</button>
-                                <input class="amount"  type="text" id="{{ $item['thongtinDV']->MaDV }}"value='{{ $item['soluong'] }}' />
-                                <button type="button"class="btn btn-plus flex qtyplus" >+</button>
+                                <input class="amount" type="text" id="{{ $item['thongtinDV']->MaDV }}" value='{{ $item['soluong'] }}' />
+                                <button type="button" class="btn btn-plus flex qtyplus">+</button>
                             </td>
                             <td>{{ $item['giatien'] }}</td>
                             <td><button type="button" class="btn bt-del xoadv" data-madv="{{ $item['thongtinDV']->MaDV }}">Hủy dịch vụ</button></td>
@@ -196,9 +198,129 @@
                     <div class="flex">
                         <input class="btn btn-accept" type="submit" value="xác nhận" />
                     </div>
-                </form> 
+                </form>
             </div>
         </div>
     </section>
+    </section>
+    <section class="pop-up-service pop-up-add dn">
+        <div class="body">
+            <header class="flex">
+                <h1 class="flex">Thêm dịch vụ</h1>
+                <div class="close-service flex">
+                    <button class="flex">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </header>
+            <div class="content flex">
+                <form method="POST" action="">
+                    <div class="text-field">
+                        <label for="">Mã dịch vụ</label>
+                        <input type="text" />
+                    </div>
+                    <div class="text-field">
+                        <label for="">Tên dịch vụ</label>
+                        <input type="text" />
+                    </div>
+                    <div class="text-field">
+                        <label for="">Ảnh minh họa</label>
+                        <input type="file" />
+                    </div>
+                    <div class="text-field">
+                        <label for="">Giá</label>
+                        <input type="text" />
+                    </div>
+                    <div class="btn-submit">
+                        <input type="submit" value="Thêm dịch vụ" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="pop-up-del-service dn">
+        <div class="body">
+            <header class="flex">
+                <h1 class="flex">Xóa dịch vụ</h1>
+                <div class="close-del flex">
+                    <button class="flex">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </header>
+            <div class="content flex">
+                <form method="POST" action="">
+                    <div class="text-field">
+                        <label for="">Nhập mã dịch vụ</label>
+                        <input type="text" />
+                    </div>
+                    <div class="btn-submit">
+                        <input type="submit" value="Xóa dịch vụ" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="pop-up-service pop-up-edit dn">
+        <div class="body">
+            <header class="flex">
+                <h1 class="flex">Sửa dịch vụ</h1>
+                <div class="close-edit flex">
+                    <button class="flex">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </header>
+            <div class="content flex">
+                <form method="POST" action="">
+                    <div class="text-field">
+                        <label for="">Mã dịch vụ</label>
+                        <input type="text" />
+                    </div>
+                    <div class="text-field">
+                        <label for="">Tên dịch vụ</label>
+                        <input type="text" />
+                    </div>
+                    <div class="text-field">
+                        <label for="">Ảnh minh họa</label>
+                        <input type="file" />
+                    </div>
+                    <div class="text-field">
+                        <label for="">Giá</label>
+                        <input type="text" />
+                    </div>
+                    <div class="btn-submit">
+                        <input type="submit" value="Sửa dịch vụ" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
 </body>
+
+<script>
+    // popup-add-service
+    $("button.add-service").click(function(e) {
+        $(".pop-up-add").removeClass("dn");
+    });
+    $(".close-service").click(function(e) {
+        $(".pop-up-add").addClass("dn");
+    });
+    // popup-del-service
+    $("button.del-service").click(function(e) {
+        $(".pop-up-del-service").removeClass("dn");
+    });
+    $(".close-del").click(function(e) {
+        $(".pop-up-del-service").addClass("dn");
+    });
+    // popup-edit-service
+    $("button.edit-service").click(function(e) {
+        $(".pop-up-edit").removeClass("dn");
+    });
+    $(".close-edit").click(function(e) {
+        $(".pop-up-edit").addClass("dn");
+    });
+</script>
+
 </html>
