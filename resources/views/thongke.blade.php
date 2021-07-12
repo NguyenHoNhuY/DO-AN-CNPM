@@ -75,7 +75,7 @@
                         <a href="#">Quản lí nhân viên</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#">Quản lí khách hàng</a>
+                        <a href="http://localhost/CNPM/public/khachhang">Quản lí khách hàng</a>
                     </li>
                     <li class="menu-item active">
                         <a href="#">Thống kê báo cáo</a>

@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class khachhangController extends Controller
 {
-    public function KHform(){
-         return view('khachhang');
+    public function danhsachKH(){
+        $query  = khachhang::all();
+        return view('layout.khachhang',compact('query'));
     }
     public function taomaKH($bang,$cot,$tiento,$max){
        return parent::taoKhoaChinh($bang,$cot,$tiento,$max);

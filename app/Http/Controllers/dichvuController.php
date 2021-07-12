@@ -8,6 +8,7 @@ use App\Models\hoadondv;
 use App\Models\chitietdv;
 use App\Models\khachhang;
 use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\File; 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class dichvuController extends Controller
@@ -30,7 +31,35 @@ class dichvuController extends Controller
         $dichvu->Gia = $request->gia;
         $dichvu->HinhAnh = $imageName;
         $dichvu->save();
-        return back()->with('thanhcong_dv','Đã thêm mới dịch vụ'); 
+        return back()->with('alert_tdv','Đã thêm mới dịch vụ'); 
+    }
+    public function xoaDV(Request $request){
+        $temp = dichvu::find($request->madv);
+        $hinhanh = $temp->HinhAnh;
+        File::delete('../resources/img/'.$hinhanh);
+        dichvu::where('MaDV' ,$request->madv)->delete();
+        return back()->with('alert_xdv','Đã xóa dịch vụ '.$request->madv);  
+    }
+    public function suaDVform($madv){
+        $dichvu = dichvu::findOrFail($madv);
+        return view('suaDV',compact('dichvu'));
+    }
+    public function suaDV(Request $request){
+        $dichvu = dichvu::find($request->madv);
+        $dichvu->TenDV = $request->tendv;
+        $dichvu->Gia = $request->gia;
+        if(($request->file('hinhanhmoi'))!=null)
+        {
+            $image =$request->file('hinhanhmoi');
+            $imageName =time().'.'. $image->getClientOriginalExtension();
+            $image->move(('../resources/img/'),$imageName);
+            $dichvu->HinhAnh = $imageName;
+            File::delete('../resources/img/'.$request->hinhanhcu);
+        }else{
+            $dichvu->HinhAnh = $request->hinhanhcu;
+        }
+        $dichvu->save();
+        return back()->with('alert_sdv','Đã sửa thông tin dịch vụ '. $request->madv);
     }
     public function orderDV(){
         $data= DB::table('dichvus')->orderBy('Gia')->get();

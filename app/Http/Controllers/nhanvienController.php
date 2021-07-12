@@ -9,11 +9,15 @@ use Illuminate\Support\Facades\DB;
 use Auth;
 class nhanvienController extends Controller
 {
-    public function them(){
+    public function nhanvien(){
+        $query = DB::table('nhanviens')
+                ->join('bophans','nhanviens.id_MaBP','bophans.MaBP')
+                ->select('nhanviens.*','TenBP')
+                ->get();
         $bophan = bophan::all();
-        return view('themnhanvien',compact('bophan'));
+        return view('layout.nhanvien',compact('query','bophan'));
     }
-    public function kiemtra(Request $request){
+    public function themNV(Request $request){
         $bophan = bophan::where('MaBP', $request->mabp)->first();
         $nhanvien = new nhanvien();
         $nhanvien->manv = $request->manv;
@@ -28,6 +32,31 @@ class nhanvienController extends Controller
         $nhanvien->chucvu = $request->chucvu;
         $nhanvien->luong = $request->luong;
         $bophan->nhanviens()->save($nhanvien);
+        return back()->with('alert_tnv',"Đã thêm mới nhân viên");
+    }
+    public function xoaNV(Request $request){
+        nhanvien::where('MaNV',$request->manv)->delete();
+        return back()->with('alert_xnv','Đã xóa nhân viên '.$request->manv);
+    }
+    public function suaNVform($manv){
+        $nhanvien = nhanvien::findOrFail($manv);
+        $bophan = bophan::all();
+        return view('suaNV',compact('nhanvien','bophan'));
+    }
+    public function suaNV(Request $request){
+        $bophan = bophan::where('MaBP', $request->mabp)->first();
+        $nhanvien = nhanvien::find($request->manv);
+        $nhanvien->TenNV = $request->tennv;
+        $nhanvien->password = password_hash($request->password,PASSWORD_BCRYPT);
+        $nhanvien->NgaySinh = $request->ngaysinh;
+        $nhanvien->gioitinh = $request->gioitinh;
+        $nhanvien->diachi = $request->diachi;
+        $nhanvien->SoDienThoai = $request->sdt;
+        $nhanvien->CMND = $request->cmnd;
+        $nhanvien->chucvu = $request->chucvu;
+        $nhanvien->luong = $request->luong;
+        $bophan->nhanviens()->save($nhanvien);
+        return back()->with('alert_snv',"Đã sửa thông tin nhân viên ".$request->manv);
     }
     public function dangnhap(){
         return view('layout.login');

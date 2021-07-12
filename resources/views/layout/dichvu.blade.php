@@ -25,6 +25,7 @@
 <body>
     <!-- Alert -->
     <div class="alert">
+        <!-- HDDV -->
         @if(Session::has('alert_hddv')!=null)
         <script>
             swal({
@@ -37,6 +38,45 @@
         Session::forget('alert_hddv')
         @endphp
         @endif
+        <!-- Them moi DV -->
+        @if(Session::has('alert_tdv')!=null)
+        <script>
+            swal({
+                title: "{!! Session::get('alert_tdv') !!}",
+                icon: "success",
+                button: "Xong",
+            })
+        </script>
+        @php
+        Session::forget('alert_tdv')
+        @endphp
+        @endif
+        <!-- Xóa DV -->
+        @if(Session::has('alert_xdv')!=null)
+        <script>
+            swal({
+                title: "{!! Session::get('alert_xdv') !!}",
+                icon: "success",
+                button: "Xong",
+            })
+        </script>
+        @php
+        Session::forget('alert_xdv')
+        @endphp
+        @endif
+         <!-- Sửa DV -->
+         @if(Session::has('alert_sdv')!=null)
+         <script>
+             swal({
+                 title: "{!! Session::get('alert_sdv') !!}",
+                 icon: "success",
+                 button: "Xong",
+             })
+         </script>
+         @php
+         Session::forget('alert_sdv')
+         @endphp
+         @endif
     </div>
     <!-- Alert -->
     <header>
@@ -82,10 +122,10 @@
                         <a href="#">Dịch vụ</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#">Quản lí nhân viên</a>
+                        <a href="http://localhost/CNPM/public/nhanvien">Quản lí nhân viên</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#">Quản lí khách hàng</a>
+                        <a href="http://localhost/CNPM/public/khachhang">Quản lí khách hàng</a>
                     </li>
                     <li class="menu-item">
                         <a href="http://localhost/CNPM/public/thongke">Thống kê báo cáo</a>
@@ -214,22 +254,19 @@
                 </div>
             </header>
             <div class="content flex">
-                <form method="POST" action="">
-                    <div class="text-field">
-                        <label for="">Mã dịch vụ</label>
-                        <input type="text" />
-                    </div>
+                <form method="POST" action="{{ route('themDV') }}" enctype="multipart/form-data">
+                    @csrf
                     <div class="text-field">
                         <label for="">Tên dịch vụ</label>
-                        <input type="text" />
-                    </div>
-                    <div class="text-field">
-                        <label for="">Ảnh minh họa</label>
-                        <input type="file" />
+                        <input type="text" name='tendv' required />
                     </div>
                     <div class="text-field">
                         <label for="">Giá</label>
-                        <input type="text" />
+                        <input type="text" name="gia" />
+                    </div>
+                    <div class="text-field">
+                        <label for="">Ảnh minh họa</label>
+                        <input type="file" name="hinhanh" />
                     </div>
                     <div class="btn-submit">
                         <input type="submit" value="Thêm dịch vụ" />
@@ -249,10 +286,11 @@
                 </div>
             </header>
             <div class="content flex">
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('xoaDV') }}">
+                    @csrf
                     <div class="text-field">
                         <label for="">Nhập mã dịch vụ</label>
-                        <input type="text" />
+                        <input type="text" name="madv"/>
                     </div>
                     <div class="btn-submit">
                         <input type="submit" value="Xóa dịch vụ" />
@@ -261,42 +299,8 @@
             </div>
         </div>
     </section>
-    <section class="pop-up-service pop-up-edit dn">
-        <div class="body">
-            <header class="flex">
-                <h1 class="flex">Sửa dịch vụ</h1>
-                <div class="close-edit flex">
-                    <button class="flex">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </header>
-            <div class="content flex">
-                <form method="POST" action="">
-                    <div class="text-field">
-                        <label for="">Mã dịch vụ</label>
-                        <input type="text" />
-                    </div>
-                    <div class="text-field">
-                        <label for="">Tên dịch vụ</label>
-                        <input type="text" />
-                    </div>
-                    <div class="text-field">
-                        <label for="">Ảnh minh họa</label>
-                        <input type="file" />
-                    </div>
-                    <div class="text-field">
-                        <label for="">Giá</label>
-                        <input type="text" />
-                    </div>
-                    <div class="btn-submit">
-                        <input type="submit" value="Sửa dịch vụ" />
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
+    <div class="suaDV">
+    </div>
 </body>
 
 <script>
@@ -316,11 +320,18 @@
     });
     // popup-edit-service
     $("button.edit-service").click(function(e) {
-        $(".pop-up-edit").removeClass("dn");
-    });
-    $(".close-edit").click(function(e) {
-        $(".pop-up-edit").addClass("dn");
+        $madv = $(this).parent().parent().find('td').eq(2).text();
+        $.get("http://localhost/CNPM/public/suaDVform/"+$madv,
+            function (data, textStatus, jqXHR) {
+                $('.suaDV').empty();
+                $('.suaDV').html(data);
+                $(".pop-up-edit").removeClass("dn");
+                $(".close-edit").click(function(e) {
+                    $(".pop-up-edit").addClass("dn");
+                });
+            },
+            "html"
+        );
     });
 </script>
-
 </html>

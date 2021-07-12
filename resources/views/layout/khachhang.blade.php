@@ -85,10 +85,10 @@
                                 >Dịch vụ</a
                             >
                         </li>
-                        <li class="menu-item active">
-                            <a href="#">Quản lí nhân viên</a>
-                        </li>
                         <li class="menu-item">
+                            <a href="http://localhost/CNPM/public/nhanvien">Quản lí nhân viên</a>
+                        </li>
+                        <li class="menu-item  active">
                             <a href="#">Quản lí khách hàng</a>
                         </li>
                         <li class="menu-item">
@@ -120,19 +120,30 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($query as $item)
                             <tr>
-                                <td>nqw12</td>
-                                <td>qưe21</td>
-                                <td>Nguyễn Hồ Như Ý</td>
-                                <td>20/10/2002</td>
-                                <td>Nam</td>
-                                <td>Bình Định</td>
-                                <td>0372252813</td>
+                                <td>{{ $item->MaKH }}</td>
+                                <td>{{ $item->TenKH }}</td>
+                                <td>{{ $item->Gioitinh }}</td>
+                                <td>{{ $item->Diachi}}</td>
+                                <td>{{ $item->CMND }}</td>
+                                <td>{{ $item->SoDienThoai }}</td>
+                                <td class='tinhtrang'>{{ $item->TinhTrang }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
     </body>
+    <script>
+        $(document).ready(function () {
+            $('.tinhtrang').each(function(){
+                if($(this).text() ==='Đang thuê'){
+                    $(this).css("color","red");
+                }
+            })
+        });
+    </script>
 </html>

@@ -30,11 +30,13 @@ Route::get('dangnhap', [nhanvienController::class, 'dangnhap'])->name('dangnhap'
 Route::post('checkdangnhap', [nhanvienController::class, 'checkdangnhap'])->name('kiemtra');
 Route::get('dangxuat', [nhanvienController::class, 'dangxuat'])->name('dangxuat');
 //NhanVien
-Route::get('nhanvien', [nhanvienController::class,'them'])->name('them');
-Route::post('themnhanvien', [nhanvienController::class, 'kiemtra'])->name('themnhanvien');
-Route::get('xoanhanvien/{id}', [nhanvienController::class, 'xoaNV'])->name('xoanhanvien');
+Route::get('nhanvien', [nhanvienController::class,'nhanvien'])->name('nhanvien');
+Route::post('themnhanvien', [nhanvienController::class, 'themNV'])->name('themnhanvien');
+Route::post('xoanhanvien', [nhanvienController::class, 'xoaNV'])->name('xoanhanvien');
+Route::get('suaNVform/{manv}',[nhanvienController::class,'suaNVform'])->name('suaNVform');
+Route::post('suaNV',[nhanvienController::class,'suaNV'])->name('suaNV');
 //khachhang
-Route::get('khachhang', [khachhangController::class, 'KHform'])->name('KHform');
+Route::get('khachhang', [khachhangController::class, 'danhsachKH'])->name('khachhang');
 Route::post('themKH', [khachhangController::class, 'themKH'])->name('themKH');
 //phong
 Route::get('phong', [phongController::class, 'danhsachphong'])->name('dsPhong');
@@ -45,6 +47,10 @@ Route::get('xoaPhong/{id}', [phongController::class, 'xoaPhong'])->name('xoaPhon
 //dichvu
 Route::get('dichvu', [dichvuController::class, 'DVform'])->name('DVform');
 Route::post('themDV', [dichvuController::class, 'themDV'])->name('themDV');
+Route::post('xoaDV',[dichvuController::class,'xoaDV'])->name('xoaDV');
+
+Route::get('suaDVform/{madv}',[dichvuController::class,'suaDVform'])->name('suaDVform');
+Route::post('suaDV',[dichvuController::class,'suaDV'])->name('suaDV');
 Route::get('order', [dichvuController::class, 'orderDV'])->name('orderDV');
 Route::get('xulyDV/{maDV}', [dichvuController::class, 'xulyDV'])->name('xulyDV');
 Route::get('xoaDV/{maDV}', [dichvuController::class, 'xoaDVtrongyeucau'])->name('xoaDVtrongyeucau');
