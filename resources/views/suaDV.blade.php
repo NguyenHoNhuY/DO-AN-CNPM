@@ -24,12 +24,12 @@
                     <input type="text" name="gia" value="{{ $dichvu->Gia }}"/>
                 </div>
                 <div class="text-field">
-                    <label for="">hình ảnh</label>
-                  {{--  // <img src="img/{{ $dichvu->HinhAnh }}" alt="{{ $dichvu->TenDV }}" /> --}}
-                    <input type="text" name="hinhanhcu" value="{{ $dichvu->HinhAnh }}"/>
+                    <label for="">Ảnh cũ</label>
+                    <img src="img/{{ $dichvu->HinhAnh }}" alt="{{ $dichvu->TenDV }}"/> 
+                    <input type="text" name="hinhanhcu" value="{{ $dichvu->HinhAnh }}" hidden/>
                 </div>
                 <div class="text-field">
-                    <label for="">Ảnh minh họa</label>
+                    <label for="">Ảnh mới</label>
                     <input type="file" name='hinhanhmoi' value="{{ $dichvu->HinhAnh }}"/>
                 </div>
                 <div class="btn-submit">

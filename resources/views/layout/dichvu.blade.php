@@ -112,7 +112,8 @@
                     </div>
                     <div class="us-name m-10">
                         @if(Session::has('nhanvien')!=null)
-                        <p>{{ Session::get('nhanvien')[0]->TenNV }}</p>
+                            <p>{{ Session::get('nhanvien')[0]->TenNV }}</p>
+                            <p>{{ Session::get('nhanvien')[0]->chucvu }}</p>
                         @endif
                     </div>
                 </div>

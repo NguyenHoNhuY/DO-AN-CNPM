@@ -72,7 +72,7 @@ class nhanvienController extends Controller
         if(Auth::guard('nhanvien')->attempt(['manv'=>$taikhoan,'password' =>$matkhau])){
             $nhanvien = DB::table('nhanviens')
                         ->where('manv',$taikhoan)
-                        ->select('manv','TenNV')
+                        ->select('manv','TenNV','chucvu')
                         ->get();
             $request->session()->put('nhanvien',$nhanvien);
             return back()->with('alert_dn','Đăng nhập thành công');
