@@ -10,6 +10,14 @@ class khachhangController extends Controller
         $query  = khachhang::all();
         return view('layout.khachhang',compact('query'));
     }
+    public function timkiemKH($makh){
+        $query = DB::table('khachhangs')->where('MaKH',$makh)->get();
+        if(!$query->isEmpty()){
+            return view('layout.khachhang',compact('query'));
+        }else{
+            return back()->with('fail_skh','Mã khách hàng không tồn tại');
+        }
+    }
     public function taomaKH($bang,$cot,$tiento,$max){
        return parent::taoKhoaChinh($bang,$cot,$tiento,$max);
     }

@@ -31,12 +31,14 @@ Route::post('checkdangnhap', [nhanvienController::class, 'checkdangnhap'])->name
 Route::get('dangxuat', [nhanvienController::class, 'dangxuat'])->name('dangxuat');
 //NhanVien
 Route::get('nhanvien', [nhanvienController::class,'nhanvien'])->name('nhanvien');
+Route::get('nhanvien/{manv}', [nhanvienController::class,'timkiemNV'])->name('timkiemNV');//tim kiem nv theo manv
 Route::post('themnhanvien', [nhanvienController::class, 'themNV'])->name('themnhanvien');
 Route::post('xoanhanvien', [nhanvienController::class, 'xoaNV'])->name('xoanhanvien');
 Route::get('suaNVform/{manv}',[nhanvienController::class,'suaNVform'])->name('suaNVform');
 Route::post('suaNV',[nhanvienController::class,'suaNV'])->name('suaNV');
 //khachhang
 Route::get('khachhang', [khachhangController::class, 'danhsachKH'])->name('khachhang');
+Route::get('khachhang/{makh}',[khachhangController::class,'timkiemKH'])->name('timkiemKH');// tim kiem kh theo makh
 Route::post('themKH', [khachhangController::class, 'themKH'])->name('themKH');
 //phong
 Route::get('phong', [phongController::class, 'danhsachphong'])->name('dsPhong');

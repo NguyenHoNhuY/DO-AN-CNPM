@@ -39,6 +39,23 @@
     </head>
 
     <body>
+        <!-- Alert -->
+        <div class="alert">
+            @if(Session::has('fail_skh')!=null)
+            <script>
+                swal({
+                    title: "Thất bại !!!",
+                    text: "{!! Session::get('fail_skh') !!}",
+                    icon: "error",
+                    button: "Xong",
+                })
+            </script>
+            @php
+            Session::forget('fail_skh')
+            @endphp
+        @endif
+        <!-- Alert -->
+        </div>
         <header>
             <div class="content">
                 <div class="logo">
@@ -106,6 +123,8 @@
             <div class="content">
                 <header class="flex">
                     <h2>Quản lí khách hàng</h2>
+                    Tìm kiếm <input type="text" id='makh'>
+                    <button type="button" id="search">Tìm</button>
                 </header>
                 <div class="table">
                     <table class="list-customer-table">
@@ -148,6 +167,11 @@
                     $(this).css("color","red");
                 }
             })
+            $('#search').click(function (e) { 
+                e.preventDefault();
+                let makh =($('#makh').val());
+                location.href="http://localhost/CNPM/public/khachhang/"+makh;
+            });
         });
     </script>
 </html>

@@ -17,6 +17,19 @@ class nhanvienController extends Controller
         $bophan = bophan::all();
         return view('layout.nhanvien',compact('query','bophan'));
     }
+    public function timkiemNV($manv){
+        $bophan = bophan::all();
+        $query = DB::table('nhanviens')
+            ->join('bophans','nhanviens.id_MaBP','bophans.MaBP')
+            ->select('nhanviens.*','TenBP')
+            ->where('MaNV',$manv)
+            ->get();
+        if(!$query->isEmpty()){
+            return view('layout.nhanvien',compact('query','bophan'));
+        }else{
+            return back()->with('fail_searchNV','Mã khách hàng không tồn tại');
+        }
+    }
     public function themNV(Request $request){
         $bophan = bophan::where('MaBP', $request->mabp)->first();
         $nhanvien = new nhanvien();

@@ -92,6 +92,20 @@
             @php
             Session::forget('alert_snv')
             @endphp
+            <!-- Tìm kiếm khách hàng thất bại -->
+            @endif
+            @if(Session::has('fail_searchNV')!=null)
+            <script>
+                swal({
+                    title: "Thất bại !!!",
+                    text: "{!! Session::get('fail_searchNV') !!}",
+                    icon: "error",
+                    button: "Xong",
+                })
+            </script>
+            @php
+            Session::forget('fail_searchNV')
+            @endphp
             @endif
         </div>
         <header>
@@ -161,6 +175,8 @@
             <div class="content">
                 <header class="flex">
                     <h2>Quản lí nhân viên</h2>
+                    Tìm kiếm <input type="text" id='manv'>
+                    <button type="button" id="search">Tìm</button>
                 </header>
                 <div class="table">
                     <table class="list-employ-table">
@@ -333,6 +349,10 @@
                 "html"
             );
         });
-        
+        $('#search').click(function (e) { 
+                e.preventDefault();
+                let manv =($('#manv').val());
+                location.href="http://localhost/CNPM/public/nhanvien/"+manv;
+        });
     </script>
 </html>

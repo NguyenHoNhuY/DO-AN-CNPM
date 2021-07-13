@@ -13,10 +13,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class dichvuController extends Controller
 {
-    public function DVform(){
-
-        return view('dichvu');
-    }
     public function taomaDV($bang,$cot,$tiento,$max){
         return parent::taoKhoaChinh($bang,$cot,$tiento,$max);
     }
