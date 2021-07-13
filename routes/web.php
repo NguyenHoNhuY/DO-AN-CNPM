@@ -31,14 +31,14 @@ Route::post('checkdangnhap', [nhanvienController::class, 'checkdangnhap'])->name
 Route::get('dangxuat', [nhanvienController::class, 'dangxuat'])->name('dangxuat');
 //NhanVien
 Route::get('nhanvien', [nhanvienController::class,'nhanvien'])->name('nhanvien');
-Route::get('nhanvien/{manv}', [nhanvienController::class,'timkiemNV'])->name('timkiemNV');//tim kiem nv theo manv
+Route::get('nhanvien/{tennv}', [nhanvienController::class,'timkiemNV'])->name('timkiemNV');//tim kiem nv theo tennv
 Route::post('themnhanvien', [nhanvienController::class, 'themNV'])->name('themnhanvien');
 Route::post('xoanhanvien', [nhanvienController::class, 'xoaNV'])->name('xoanhanvien');
 Route::get('suaNVform/{manv}',[nhanvienController::class,'suaNVform'])->name('suaNVform');
 Route::post('suaNV',[nhanvienController::class,'suaNV'])->name('suaNV');
 //khachhang
 Route::get('khachhang', [khachhangController::class, 'danhsachKH'])->name('khachhang');
-Route::get('khachhang/{makh}',[khachhangController::class,'timkiemKH'])->name('timkiemKH');// tim kiem kh theo makh
+Route::get('khachhang/{cmnd}',[khachhangController::class,'timkiemKH'])->name('timkiemKH');// tim kiem kh theo cmnd
 Route::post('themKH', [khachhangController::class, 'themKH'])->name('themKH');
 //phong
 Route::get('phong', [phongController::class, 'danhsachphong'])->name('dsPhong');
@@ -66,6 +66,7 @@ Route::get('chitietPT/{maphong}',[phieuthueController::class,'chitietPT'])->name
 Route::get('thanhtoan/{maphong}', [thanhtoanController::class, 'thanhtoan'])->name('thanhtoan');
 Route::post('themTT', [thanhtoanController::class, 'themTT'])->name('themTT');
 Route::get('thanhtoan',[thanhtoanController::class,'inTT'])->name('inTT');
+Route::get('thanhtoan/nhanvien/{manv}',[thanhtoanController::class,'timkiemTT'])->name('timkiemTT');// tim kiem theo manv
 //Thong ke
 Route::get('thongke', [thanhtoanController::class, 'thongke'])->name('thongke');
 Route::get('doanhthuPhong', [thanhtoanController::class, 'doanhthuPhong']);
