@@ -142,7 +142,7 @@
                             >
                         </li>
                         <li class="menu-item active">
-                            <a href="#">Quản lí nhân viên</a>
+                            <a href="http://localhost/CNPM/public/nhanvien">Quản lí nhân viên</a>
                         </li>
                         <li class="menu-item">
                             <a href="http://localhost/CNPM/public/khachhang">Quản lí khách hàng</a>

@@ -73,13 +73,13 @@
                     </li>
                     <li class="menu-item"><a href="http://localhost/CNPM/public/order">Dịch vụ</a></li>
                     <li class="menu-item">
-                        <a href="#">Quản lí nhân viên</a>
+                        <a href="http://localhost/CNPM/public/nhanvien">Quản lí nhân viên</a>
                     </li>
                     <li class="menu-item">
                         <a href="http://localhost/CNPM/public/khachhang">Quản lí khách hàng</a>
                     </li>
                     <li class="menu-item active">
-                        <a href="#">Thống kê báo cáo</a>
+                        <a href="http://localhost/CNPM/public/thongke">Thống kê báo cáo</a>
                     </li>
                 </ul>
             </div>
