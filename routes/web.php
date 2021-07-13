@@ -63,6 +63,7 @@ Route::get('chitietPT/{maphong}',[phieuthueController::class,'chitietPT'])->name
 //Thanh toan
 Route::get('thanhtoan/{maphong}', [thanhtoanController::class, 'thanhtoan'])->name('thanhtoan');
 Route::post('themTT', [thanhtoanController::class, 'themTT'])->name('themTT');
+Route::get('thanhtoan',[thanhtoanController::class,'inTT'])->name('inTT');
 //Thong ke
 Route::get('thongke', [thanhtoanController::class, 'thongke'])->name('thongke');
 Route::get('doanhthuPhong', [thanhtoanController::class, 'doanhthuPhong']);

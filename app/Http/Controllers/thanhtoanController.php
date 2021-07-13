@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\thanhtoan;
 use App\Models\phong;
 use App\Models\hoadondv;
+use PhpParser\Node\Expr\FuncCall;
+
 class thanhtoanController extends Controller
 {
     public function thanhtoan($maphong){
@@ -69,6 +71,10 @@ class thanhtoanController extends Controller
         $thanhtoan->TongTienTT = $request->tongtientt;
         $thanhtoan->save();
         return back()->with('alert_tt',"Thanh toán thành công");
+    }
+    public function inTT(){
+        $data = DB::table('thanhtoans')->orderByDesc('NgayLap')->get();
+        return $data;
     }
     public function thongke(){
         return view('thongke');
