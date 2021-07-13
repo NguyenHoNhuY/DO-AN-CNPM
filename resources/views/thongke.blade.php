@@ -71,7 +71,9 @@
                     <li class="menu-item ">
                         <a href="http://localhost/CNPM/public/phong">Đặt/Trả phòng</a>
                     </li>
-                    <li class="menu-item"><a href="http://localhost/CNPM/public/order">Dịch vụ</a></li>
+                    <li class="menu-item">
+                        <a href="http://localhost/CNPM/public/order">Dịch vụ</a>
+                    </li>
                     <li class="menu-item">
                         <a href="http://localhost/CNPM/public/nhanvien">Quản lí nhân viên</a>
                     </li>

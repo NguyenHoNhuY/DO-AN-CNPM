@@ -645,3 +645,29 @@ td{
     border: none;
     color: #fff;
 }
+.search{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    justify-content: center;
+}
+.search input , .search button{
+    height: 40px;
+}
+.search input {
+    margin: 0 30px;
+    font-size: 18px;
+}
+.search button{
+    padding: 0 30px;
+    border: 1px solid #000;
+    background: #ffff;
+    font-size: 18px;
+    cursor: pointer;
+}
+.search button:hover{
+    background: #000;
+    color: #fff;
+}

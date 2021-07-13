@@ -112,9 +112,12 @@
             <div class="content">
                 <header class="flex">
                     <h2>Quản lí hóa đơn thanh toán</h2>
-                    Tìm kiếm <input type="text" id='manv'>
-                    <button type="button" id="search">Tìm</button>
                 </header>
+                <div class="search">
+                    <label for="">Tìm kiếm</label>
+                    <input type="text" id='manv'>
+                    <button type="button" id="search">Tìm</button>
+                </div>
                 <div class="table">
                     <table class="list-customer-table">
                         <thead>
