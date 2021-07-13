@@ -76,6 +76,14 @@ class thanhtoanController extends Controller
         $data = DB::table('thanhtoans')->orderByDesc('NgayLap')->get();
         return view('layout/thanhtoan',compact('data'));
     }
+    public function timkiemTT($manv){
+        $data = DB::table('thanhtoans')->where('MaNV',$manv)->get();
+        if(!$data->isEmpty()){
+            return view('layout.thanhtoan',compact('data'));
+        }else{
+            return back()->with('fail_searchNV','Nhân viên không hợp lệ');
+        } 
+    }
     public function thongke(){
         return view('thongke');
     }

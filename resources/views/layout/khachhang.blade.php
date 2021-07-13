@@ -123,7 +123,7 @@
             <div class="content">
                 <header class="flex">
                     <h2>Quản lí khách hàng</h2>
-                    Tìm kiếm <input type="text" id='makh'>
+                    Tìm kiếm <input type="text" id='cmnd'>
                     <button type="button" id="search">Tìm</button>
                 </header>
                 <div class="table">
@@ -169,8 +169,8 @@
             })
             $('#search').click(function (e) { 
                 e.preventDefault();
-                let makh =($('#makh').val());
-                location.href="http://localhost/CNPM/public/khachhang/"+makh;
+                let cmnd =($('#cmnd').val());
+                location.href="http://localhost/CNPM/public/khachhang/"+cmnd;
             });
         });
     </script>

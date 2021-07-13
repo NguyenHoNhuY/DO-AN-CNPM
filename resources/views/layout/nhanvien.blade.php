@@ -175,7 +175,7 @@
             <div class="content">
                 <header class="flex">
                     <h2>Quản lí nhân viên</h2>
-                    Tìm kiếm <input type="text" id='manv'>
+                    Tìm kiếm <input type="text" id='tennv'>
                     <button type="button" id="search">Tìm</button>
                 </header>
                 <div class="table">
@@ -351,8 +351,8 @@
         });
         $('#search').click(function (e) { 
                 e.preventDefault();
-                let manv =($('#manv').val());
-                location.href="http://localhost/CNPM/public/nhanvien/"+manv;
+                let tennv =($('#tennv').val());
+                location.href="http://localhost/CNPM/public/nhanvien/"+tennv;
         });
     </script>
 </html>
