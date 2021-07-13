@@ -174,7 +174,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php $count =0; @endphp
+                    @php $count =1; @endphp
                     @foreach($data as $item)
                     <tr>
                         <td>{{ $count}}</td>
@@ -224,7 +224,7 @@
                             <th>Thành tiền</th>
                             <th>Xóa dịch vụ</th>
                         </tr>
-                        @php $temp =0 @endphp
+                        @php $temp =1 @endphp
                         @foreach(Session::get('order')->cacdichvu as $item)
                         <tr>
                             <td>{{ $temp }}</td>
