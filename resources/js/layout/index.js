@@ -94,3 +94,13 @@ $(document).ready(function () {
         );
     });
 });
+$(document).ready(function () {
+    let chucvu=$(".us-name p:eq(1)").text();
+    if (chucvu!="Quản lý") {
+        $("li.menu-item:eq(2)").addClass("dn");
+        $("li.menu-item:eq(3)").addClass("dn");
+        $("li.menu-item:eq(4)").addClass("dn");
+        $(".add-del").addClass("dn");
+        $(".edit-service").addClass("dn");
+    } 
+});

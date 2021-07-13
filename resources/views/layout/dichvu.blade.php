@@ -20,6 +20,7 @@
     <!-- jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/giohang.js"></script>
+    <script src="js/layout/index.js"></script>
 </head>
 
 <body>
@@ -64,33 +65,33 @@
         Session::forget('alert_xdv')
         @endphp
         @endif
-         <!-- Sửa DV Thành Công-->
-         @if(Session::has('alert_sdv')!=null)
-         <script>
-             swal({
-                 title: "{!! Session::get('alert_sdv') !!}",
-                 icon: "success",
-                 button: "Xong",
-             })
-         </script>
-         @php
-         Session::forget('alert_sdv')
-         @endphp
-         @endif
-          <!-- Xóa DV Thất Bại -->
-         @if(Session::has('fail_xdv')!=null)
-         <script>
-             swal({
-                 title:"Thất bại !!!",
-                 text: "{!! Session::get('fail_xdv') !!}",
-                 icon: "error",
-                 button: "OK",
-             })
-         </script>
-         @php
-         Session::forget('fail_xdv')
-         @endphp
-         @endif
+        <!-- Sửa DV Thành Công-->
+        @if(Session::has('alert_sdv')!=null)
+        <script>
+            swal({
+                title: "{!! Session::get('alert_sdv') !!}",
+                icon: "success",
+                button: "Xong",
+            })
+        </script>
+        @php
+        Session::forget('alert_sdv')
+        @endphp
+        @endif
+        <!-- Xóa DV Thất Bại -->
+        @if(Session::has('fail_xdv')!=null)
+        <script>
+            swal({
+                title: "Thất bại !!!",
+                text: "{!! Session::get('fail_xdv') !!}",
+                icon: "error",
+                button: "OK",
+            })
+        </script>
+        @php
+        Session::forget('fail_xdv')
+        @endphp
+        @endif
     </div>
     <!-- Alert -->
     <header>
@@ -112,8 +113,8 @@
                     </div>
                     <div class="us-name m-10">
                         @if(Session::has('nhanvien')!=null)
-                            <p>{{ Session::get('nhanvien')[0]->TenNV }}</p>
-                            <p>{{ Session::get('nhanvien')[0]->chucvu }}</p>
+                        <p>{{ Session::get('nhanvien')[0]->TenNV }}</p>
+                        <p>{{ Session::get('nhanvien')[0]->chucvu }}</p>
                         @endif
                     </div>
                 </div>
@@ -305,7 +306,7 @@
                     @csrf
                     <div class="text-field">
                         <label for="">Nhập mã dịch vụ</label>
-                        <input type="text" name="madv"/>
+                        <input type="text" name="madv" />
                     </div>
                     <div class="btn-submit">
                         <input type="submit" value="Xóa dịch vụ" />
@@ -336,8 +337,8 @@
     // popup-edit-service
     $("button.edit-service").click(function(e) {
         $madv = $(this).parent().parent().find('td').eq(2).text();
-        $.get("http://localhost/CNPM/public/suaDVform/"+$madv,
-            function (data, textStatus, jqXHR) {
+        $.get("http://localhost/CNPM/public/suaDVform/" + $madv,
+            function(data, textStatus, jqXHR) {
                 $('.suaDV').empty();
                 $('.suaDV').html(data);
                 $(".pop-up-edit").removeClass("dn");
@@ -349,4 +350,5 @@
         );
     });
 </script>
+
 </html>

@@ -171,3 +171,6 @@ form .btn-submit input:hover {
 .pop-up-del-employ .content {
     padding-top: 50px;
 }
+input[type="radio"]{
+    height: 45%;
+}
