@@ -144,6 +144,9 @@
                         <a href="http://localhost/CNPM/public/khachhang">Quản lí khách hàng</a>
                     </li>
                     <li class="menu-item">
+                        <a href="http://localhost/CNPM/public/thanhtoan">Quản lí hóa đơn</a>
+                    </li>
+                    <li class="menu-item">
                         <a href="http://localhost/CNPM/public/thongke">Thống kê báo cáo</a>
                     </li>
                 </ul>

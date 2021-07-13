@@ -87,13 +87,19 @@
                             >
                         </li>
                         <li class="menu-item">
-                            <a href="http://localhost/CNPM/public/nhanvien">Quản lí nhân viên</a>
-                        </li>
-                        <li class="menu-item  active">
-                            <a href="http://localhost/CNPM/public/khachhang">Quản lí khách hàng</a>
+                            <a href="http://localhost/CNPM/public/nhanvien"
+                                >Quản lí nhân viên</a
+                            >
                         </li>
                         <li class="menu-item">
-                            <a href="http://localhost/CNPM/public/thanhtoan">Quản lí hóa đơn</a>
+                            <a href="http://localhost/CNPM/public/khachhang"
+                                >Quản lí khách hàng</a
+                            >
+                        </li>
+                        <li class="menu-item active">
+                            <a href="http://localhost/CNPM/public/thanhtoan"
+                                >Quản lí hóa đơn</a
+                            >
                         </li>
                         <li class="menu-item">
                             <a href="http://localhost/CNPM/public/thongke"
@@ -105,34 +111,32 @@
             </div>
             <div class="content">
                 <header class="flex">
-                    <h2>Quản lí khách hàng</h2>
+                    <h2>Quản lí hóa đơn thanh toán</h2>
                 </header>
                 <div class="table">
                     <table class="list-customer-table">
                         <thead>
                             <tr>
-                                <th colspan="11">Danh sách khách hàng</th>
+                                <th colspan="11">Danh sách hóa đơn thanh toán</th>
                             </tr>
                             <tr>
+                                <th>Mã hóa đơn thanh toán</th>
                                 <th>Mã khách hàng</th>
-                                <th>Tên khách hàng</th>
-                                <th>Giới tính</th>
-                                <th>Địa chỉ</th>
-                                <th>CMND</th>
-                                <th>Số điện thoại</th>
-                                <th>Tình trạng</th>
+                                <th>Nhân viên lập</th>
+                                <th>Ngày lập</th>
+                                <th>Tiền phòng</th>
+                                <th>Tổng tiền thanh toán</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($query as $item)
+                            @foreach ($data as $item)
                             <tr>
+                                <td>{{ $item->MaTT }}</td>
                                 <td>{{ $item->MaKH }}</td>
-                                <td>{{ $item->TenKH }}</td>
-                                <td>{{ $item->Gioitinh }}</td>
-                                <td>{{ $item->Diachi}}</td>
-                                <td>{{ $item->CMND }}</td>
-                                <td>{{ $item->SoDienThoai }}</td>
-                                <td class='tinhtrang'>{{ $item->TinhTrang }}</td>
+                                <td>{{ $item->MaNV }}</td>
+                                <td>{{ date_format( date_create($item->NgayLap),"d/m/Y")}}</td>
+                                <td>{{ number_format($item->TienPhong) }}đ</td>
+                                <td>{{ number_format($item->TongTienTT) }}đ</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -143,11 +147,11 @@
     </body>
     <script>
         $(document).ready(function () {
-            $('.tinhtrang').each(function(){
-                if($(this).text() ==='Đang thuê'){
-                    $(this).css("color","red");
+            $(".tinhtrang").each(function () {
+                if ($(this).text() === "Đang thuê") {
+                    $(this).css("color", "red");
                 }
-            })
+            });
         });
     </script>
 </html>

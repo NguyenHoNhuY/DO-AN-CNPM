@@ -74,7 +74,7 @@ class thanhtoanController extends Controller
     }
     public function inTT(){
         $data = DB::table('thanhtoans')->orderByDesc('NgayLap')->get();
-        return $data;
+        return view('layout/thanhtoan',compact('data'));
     }
     public function thongke(){
         return view('thongke');
