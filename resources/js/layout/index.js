@@ -99,7 +99,7 @@ $(document).ready(function () {
     if (chucvu!="Quản lý") {
         $("li.menu-item:eq(2)").addClass("dn");
         $("li.menu-item:eq(3)").addClass("dn");
-        $("li.menu-item:eq(4)").addClass("dn");
+        $("li.menu-item:eq(5)").addClass("dn");
         $(".add-del").addClass("dn");
         $(".edit-service").addClass("dn");
     } 
