@@ -18,7 +18,7 @@ class phieuthueController extends Controller
     }
     public function themPT(Request $request){
         $phieuthue = new phieuthue();
-        $maPT = $this->taomaPT('phieuthues','MaPT','PT',100);
+        $maPT = $this->taomaPT('phieuthues','MaPT','PT',300);
         $this->capnhatPhong($request->maphong);
         $phieuthue->MaPT = $maPT;
         $phieuthue->MaKH = $request->makh;

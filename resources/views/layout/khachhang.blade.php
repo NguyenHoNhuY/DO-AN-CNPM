@@ -109,7 +109,7 @@
             </header>
             <div class="search">
                 <label for="">Tìm kiếm</label>
-                <input type="text" id='makh'>
+                <input type="text" id='cmnd' placeholder="CMND">
                 <button type="button" id="search">Tìm</button>
             </div>
             <div class="table">
@@ -155,8 +155,8 @@
         })
         $('#search').click(function(e) {
             e.preventDefault();
-            let makh = ($('#makh').val());
-            location.href = "http://localhost/CNPM/public/khachhang/" + makh;
+            let cmnd = ($('#cmnd').val());
+            location.href = "http://localhost/CNPM/public/khachhang/" + cmnd;
         });
     });
 </script>

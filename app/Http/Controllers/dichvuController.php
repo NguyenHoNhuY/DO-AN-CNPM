@@ -105,36 +105,40 @@ class dichvuController extends Controller
     }
     public function taoHDDV(Request $request){
         if($request->makh){
-            $khachhang = khachhang::select('MaKH')
+            $khachhang = khachhang::select('MaKH','TinhTrang')
                         ->where('MaKH',$request->makh)
                         ->first();
-            $hoadon = new hoadondv();
-            $mahddv = $this->taomaHDDV('hoadondvs','MaHDDV','HDDV','100');
-            $hoadon->MaHDDV = $mahddv;
-            $hoadon->MaNV = 'NV01';
-            $hoadon->NgayLap = date('Y-m-d');
-            $hoadon->TongTienDV = $request->session()->get('order')->tongtien;
-            $khachhang->hoadonDVs()->save($hoadon);
-            ////danh sach id san pham trong gio hang
-            $dichvuTrongOrder = $request->session()->get('order')->cacdichvu;
-            $temp = hoadondv::select('MaHDDV')
-                            ->where('MaHDDV',$mahddv)
-                            ->first();
-            foreach($dichvuTrongOrder as $dichvu=>$val){
-                $madv=$val['thongtinDV']->MaDV;
-                $soluong = $val['soluong'];
-                $tien = $val['giatien'];
-                $mactdv =$this->taomaCTDV('chitietdvs','MaCTDV','CTDV','100');
-                $temp->dichvus()->attach($madv,[
-                    'MaCTDV' => $mactdv,
-                    'SoLuong' => $soluong,
-                    'ThanhTien'  => $tien,
-                    ]);  
+            if($khachhang !=null && $khachhang->TinhTrang =='Đang thuê'){
+                $hoadon = new hoadondv();
+                $mahddv = $this->taomaHDDV('hoadondvs','MaHDDV','HDDV','100');
+                $hoadon->MaHDDV = $mahddv;
+                $hoadon->MaNV = 'NV01';
+                $hoadon->NgayLap = date('Y-m-d');
+                $hoadon->TongTienDV = $request->session()->get('order')->tongtien;
+                $khachhang->hoadonDVs()->save($hoadon);
+                ////danh sach id san pham trong gio hang
+                $dichvuTrongOrder = $request->session()->get('order')->cacdichvu;
+                $temp = hoadondv::select('MaHDDV')
+                                ->where('MaHDDV',$mahddv)
+                                ->first();
+                foreach($dichvuTrongOrder as $dichvu=>$val){
+                    $madv=$val['thongtinDV']->MaDV;
+                    $soluong = $val['soluong'];
+                    $tien = $val['giatien'];
+                    $mactdv =$this->taomaCTDV('chitietdvs','MaCTDV','CTDV','100');
+                    $temp->dichvus()->attach($madv,[
+                        'MaCTDV' => $mactdv,
+                        'SoLuong' => $soluong,
+                        'ThanhTien'  => $tien,
+                        ]);  
+                }
+                $request->session()->forget('order');
+                return redirect("http://localhost/CNPM/public/order")->with('alert_hddv',"Yêu cầu dịch vụ thành công");
+            }else{
+                return back()->with('fail_hddv',"Khách hàng không tồn tại hoặc đã hết thuê");
             }
-            $request->session()->forget('order');
-            return redirect("http://localhost/CNPM/public/order")->with('alert_hddv',"Yêu cầu dịch vụ thành công");
         }else{
-            return back()->with('alert_hddv',"Yêu cầu nhập mã khách hàng");
+            return back()->with('fail_hddv',"Yêu cầu nhập mã khách hàng");
         }
     }
 }

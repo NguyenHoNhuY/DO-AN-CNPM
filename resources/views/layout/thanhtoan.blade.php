@@ -39,6 +39,22 @@
     </head>
 
     <body>
+        <!-- Alert-->
+        <div class="alert">
+            @if(Session::has('fail_searchTT')!=null)
+            <script>
+                swal({
+                    title: "Thất bại !!!",
+                    text: "{!! Session::get('fail_searchTT') !!}",
+                    icon: "error",
+                    button: "Xong",
+                })
+            </script>
+            @php
+            Session::forget('fail_searchTT')
+            @endphp
+            @endif
+        </div>
         <header>
             <div class="content">
                 <div class="logo">
@@ -115,7 +131,7 @@
                 </header>
                 <div class="search">
                     <label for="">Tìm kiếm</label>
-                    <input type="text" id='manv'>
+                    <input type="text" id='manv' placeholder="Mã Nhân Viên">
                     <button type="button" id="search">Tìm</button>
                 </div>
                 <div class="table">
@@ -160,7 +176,7 @@
             $('#search').click(function (e) { 
                 e.preventDefault();
                 let manv =($('#manv').val());
-                location.href="http://localhost/CNPM/public/thanhtoan/nv/"+manv;
+                location.href="http://localhost/CNPM/public/thanhtoan/nhanvien/"+manv;
         });
         });
     </script>

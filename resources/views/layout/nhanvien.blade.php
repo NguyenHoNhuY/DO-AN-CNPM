@@ -82,7 +82,7 @@
         @php
         Session::forget('alert_snv')
         @endphp
-        <!-- Tìm kiếm khách hàng thất bại -->
+        <!-- Tìm kiếm nhân viên thất bại -->
         @endif
         @if(Session::has('fail_searchNV')!=null)
         <script>
@@ -161,7 +161,7 @@
             </header>
             <div class="search">
                 <label for="">Tìm kiếm</label>
-                <input type="text" id='tennv'>
+                <input type="text" id='tennv' placeholder="Họ Tên">
                 <button type="button" id="search">Tìm</button>
             </div>
             <div class="table">

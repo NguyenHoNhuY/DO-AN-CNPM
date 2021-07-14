@@ -101,7 +101,7 @@
             options: {
               title: {
                 display: true,
-                text: 'Mini Hotel Revenue',
+                text: 'MI MI Hotel',
                 fontSize: 25
               },
               legend: {

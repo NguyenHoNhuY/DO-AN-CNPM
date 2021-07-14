@@ -59,7 +59,7 @@ class thanhtoanController extends Controller
     }
     public function themTT(Request $request){
         $thanhtoan = new thanhtoan();
-        $matt = $this->taomaTT('thanhtoans','MaTT','TT',100);
+        $matt = $this->taomaTT('thanhtoans','MaTT','TT',200);
         //cap nhat lai phong
         $this->capnhatPhong($request->makh);
         $this->capnhatKH($request->makh);
@@ -81,7 +81,7 @@ class thanhtoanController extends Controller
         if(!$data->isEmpty()){
             return view('layout.thanhtoan',compact('data'));
         }else{
-            return back()->with('fail_searchNV','Nhân viên không hợp lệ');
+            return back()->with('fail_searchTT','Mã Nhân viên không tồn tại');
         } 
     }
     public function thongke(){

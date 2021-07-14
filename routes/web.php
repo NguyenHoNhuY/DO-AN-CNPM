@@ -71,3 +71,4 @@ Route::get('thanhtoan/nhanvien/{manv}',[thanhtoanController::class,'timkiemTT'])
 Route::get('thongke', [thanhtoanController::class, 'thongke'])->name('thongke');
 Route::get('doanhthuPhong', [thanhtoanController::class, 'doanhthuPhong']);
 Route::get('doanhthuDV', [thanhtoanController::class, 'doanhthuDV']);
+

@@ -31,7 +31,7 @@
             data: {
               labels: labels,
               datasets: [{
-                label: 'Line Chart',
+                label: 'Tổng tiền',
                 data: tienDV,
                 fill: false,
                 borderColor: 'rgb(75,192,192)',

@@ -347,7 +347,7 @@
                                 </div>
                                 <div class="txt-field note">
                                     <label for="">Ghi chú : </label>
-                                    <input type="text" name="ghichu" />
+                                    <input type="text" name="ghichu" required/>
                                 </div>
                             </div>
                         </div>

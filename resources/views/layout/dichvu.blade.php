@@ -39,6 +39,20 @@
         Session::forget('alert_hddv')
         @endphp
         @endif
+        <!-- HDDV Thất bại -->
+        @if(Session::has('fail_hddv')!=null)
+        <script>
+            swal({
+                title :"Thất Bại !!!",
+                text: "{!! Session::get('fail_hddv') !!}",
+                icon: "error",
+                button: "Xong",
+            })
+        </script>
+        @php
+        Session::forget('fail_hddv')
+        @endphp
+        @endif
         <!-- Them moi DV -->
         @if(Session::has('alert_tdv')!=null)
         <script>

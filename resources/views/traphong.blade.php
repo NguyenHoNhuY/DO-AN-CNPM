@@ -64,10 +64,11 @@
                         $tongtienthue = $songaythue * $phieuthue[0]->Gia -$phieuthue[0]->TraTruoc;
                         echo "<p class='time'>Thời gian ở : <span> $songaythue ngày </span></p>";
                         echo "<p class='total-money'>Tổng tiền thuê phòng : <span>".number_format($tongtienthue)."đ</span></p>";
-                        echo "<input type='text' name='tienphong' value='$tongtienthue' readonly hidden><br>";
+                        echo "<input type='text' name='tienphong' value='$tongtienthue' readonly hidden>";
                         @endphp
                     </div>
                 </div>
+                <br>
                 <div class="service">
                     <header class="form-header flex">
                         <h2>Thông tin dịch vụ</h2>
