@@ -203,7 +203,7 @@
                         </td>
                         <td>{{ $item->MaDV }} </td>
                         <td>{{ $item->TenDV }}</td>
-                        <td>{{ $item->Gia }}</td>
+                        <td>{{ number_format($item->Gia) }}đ</td>
                         <td>
                             <button class="btn btn-add order">Yêu cầu</button>
                             <button class="edit-service">Sửa</button>
@@ -295,11 +295,11 @@
                     </div>
                     <div class="text-field">
                         <label for="">Giá</label>
-                        <input type="text" name="gia" />
+                        <input type="number" name="gia" required/>
                     </div>
                     <div class="text-field">
                         <label for="">Ảnh minh họa</label>
-                        <input type="file" name="hinhanh" />
+                        <input type="file" name="hinhanh" required />
                     </div>
                     <div class="btn-submit">
                         <input type="submit" value="Thêm dịch vụ" />

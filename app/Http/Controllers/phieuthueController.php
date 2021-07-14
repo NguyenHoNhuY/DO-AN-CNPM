@@ -41,6 +41,4 @@ class phieuthueController extends Controller
                 ->get();
         return view('chitietPT',compact('query'));
     }
-    
-   
 }

@@ -58,7 +58,7 @@
                 </div>
                 <div class="text-field">
                     <label for="">Lương</label>
-                    <input type="text" name="luong" value="{{ $nhanvien->Luong }}" />
+                    <input type="number" name="luong" value="{{ $nhanvien->Luong }}" />
                 </div>
                 <div class="btn-submit">
                     <input type="submit" value="Sửa" />

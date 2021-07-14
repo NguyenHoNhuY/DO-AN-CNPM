@@ -196,7 +196,7 @@
                             <td>{{ $item->SoDienThoai }}</td>
                             <td>{{ $item->CMND }}</td>
                             <td>{{ $item->chucvu }}</td>
-                            <td>{{ $item->Luong }}</td>
+                            <td>{{ number_format($item->Luong) }}đ</td>
                             <td><button class="btn-edit">Sửa</button></td>
                         </tr>
                         @endforeach
@@ -269,7 +269,7 @@
                     </div>
                     <div class="text-field">
                         <label for="">Lương</label>
-                        <input type="text" name="luong" required />
+                        <input type="number" name="luong" required />
                     </div>
                     <div class="btn-submit">
                         <input type="submit" value="Thêm nhân viên" />
@@ -292,8 +292,8 @@
                 <form method="POST" action="{{ route('xoanhanvien') }}">
                     @csrf
                     <div class="text-field">
-                        <label for="">Nhập mã nhân viên</label>
-                        <input type="text" name="manv" />
+                        <label for="">Họ tên nhân viên</label>
+                        <input type="text" name="tennv" />
                     </div>
                     <div class="btn-submit">
                         <input type="submit" value="Xóa nhân viên" />

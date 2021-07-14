@@ -21,7 +21,7 @@
                 </div>
                 <div class="text-field">
                     <label for="">Giá</label>
-                    <input type="text" name="gia" value="{{ $dichvu->Gia }}"/>
+                    <input type="number" name="gia" value="{{ $dichvu->Gia }}"/>
                 </div>
                 <div class="text-field">
                     <label for="">Ảnh cũ</label>
